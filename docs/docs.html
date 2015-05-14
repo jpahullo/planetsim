@@ -1,0 +1,208 @@
+<html>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html>
+      <head>
+          <title>
+            PlanetSim: An Overlay Network Simulation Framework - Documentation
+          </title>
+        <style type="text/css">
+          @import url("style/tigris.css");
+          @import url("style/maven.css");
+</style>
+        <link rel="stylesheet" href="style/print.css" type="text/css" media="print"></link>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta>
+      </head>
+      <body class="composite">
+        <div id="banner0">
+          <table border="0" width="100%" cellpadding="8" cellspacing="0" id="table1">
+            <tr>
+              <td>
+                  <img border="0" src="images/planetsimlogo.jpg" width="251" height="157"><a href="index.htm"><span style="text-decoration: none"></img></span></a>
+                  <span style="text-decoration: none">&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span style="font-weight: 700"><a href="index.html">An Overlay Network Simulation Framework</a></span></span></td>
+              <td width="222">
+                <div id="login" align="right">
+                    <a href="http://ants.etse.urv.es/planet">
+                    <img border="0" src="images/logoplanet.jpg" width="150" height="142"></a></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div id="breadcrumbs">
+          <table border="0" width="98%" cellpadding="4" cellspacing="0" id="table2">
+            <tr>
+                <td width="286"><font size="2">Last Updated: 6 April 2005</font></td>
+              <td>
+                <div align="right">
+      <font size="2">
+		<a href="http://ants.etse.urv.es/planet"><img class="handle" src="images/none.png" alt=""></img>PLANET Project Page</a>
+      |
+      <a href="http://www.etse.urv.es/recerca/ast/"><img class="handle" src="images/none.png" alt=""></img>AST 
+		Research Group</a>&nbsp;
+		</font>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <table border="0" width="100%" cellpadding="8" cellspacing="0"> 
+          <tr valign="top">
+            <td>
+              <div id="bodycol">
+                <div class="app">
+    <h3><b>
+			<span lang="EN-US" style="font-family: Verdana; color: #FFFBF0">
+			<font size="2">Compile Sources</font></span></b></h3>
+    <p>
+			<span lang="EN-US" style="font-family: Verdana">
+			<font size="2">PlanetSim is using now ant build utility. You should first download 
+			and install the jakarta ant library.<br>
+			<br>
+			Get ant from
+			<a style="color: #0164A8; text-decoration: underline; text-underline: single" href="http://jakarta.apache.org/ant/index.html">
+			http://jakarta.apache.org/ant/index.html</a>.<br>
+			<br>
+			<br>
+			In order to install ant you have to set the following environment 
+			variables:<br>
+			<br>
+			set ANT_HOME=d:\apps\ant<br>
+			set JAVA_HOME=d:\jdk1.4<br>
+			set PATH=%PATH%;%ANT_HOME%\bin<br>
+			set CLASSPATH=.;%ANT_HOME%\lib\ant.jar;%ANT_HOME%\lib\jaxp.jar;%ANT_HOME%\lib\parser.jar<br>
+			<br>
+			Once you have installed ant you can now compile and test the planet 
+			library.<br>
+			<br>
+			In order to compile you only need to execute ant in the bin 
+			directory:<br>
+			<br>
+			&gt;&gt; cd bin<br>
+			<br>
+			&gt;&gt; ant <br>
+			It will generate the file p2p.jar in the jars directory.</font></span></p>
+    <h3><span style="background-repeat: repeat"><font size="2">Install</font></span></h3>
+				<p class="MsoNormal">
+				<span lang="EN-US" style="font-family: Verdana">
+				<font size="2">The only requirement is a Java JDK1.2.X or superior. Our scripts 
+				will assume that you already have java and javac in your PATH.</font></span>&nbsp;</br></p>
+    <h3><span style="color: #FFFBF0" lang="en-us">
+				<b><span style="font-family: Verdana"><font size="2">Configure Files</font></span></b></span></h3>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2">In each 
+		simulation, you must have defined and initialized three config. files :</font></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2">a) Simulator 
+		Propierties</font></span></p>
+		<blockquote>
+			<p class="MsoNormal"><font size="2"># Events<br>
+			DEFAULT_EVENT_FILE = test_random.txt<br>
+			<br>
+			# Default simulation steps for any node join or leave<br>
+			DEFAULT_SIMULATION_STEPS = 2<br>
+			<br>
+			# Log Level<br>
+			# 0 --&gt; error<br>
+			# 1 --&gt; events<br>
+			# 2 --&gt; node info<br>
+			# 3 --&gt; message<br>
+			DEFAULT_LOG_LEVEL = 0<br>
+			<br>
+			# OUTPUT FILE OF THE SERIALIZABLE STATE<br>
+			DEFAULT_OUTPUT_FILE = simdata.dat<br>
+			<br>
+			# For replacing the output file (default=&gt; true)<br>
+			DEFAULT_REPLACE_OUTPUT_FILE = true<br>
+			<br>
+			# Default Timer Class<br>
+			DEFAULT_TIMER = planet.util.timer.SimulationTimerImpl<br>
+			<br>
+			# Default OverlayProperties implementation class<br>
+			DEFAULT_OVERLAY_PROPERTIES = planet.chord.ChordProperties<br>
+			<br>
+			# Queue Size<br>
+			DEFAULT_QUEUE_SIZE = 160<br>
+			<br>
+			# Message Process <br>
+			DEFAULT_MSG_PROCESS = 1000</font><br>
+&nbsp;</p>
+	</blockquote>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2">b) Factory 
+		Properties</font></span></p>
+		<blockquote>
+			<p class="MsoNormal"><font size="2"># Properties for NetworkFactory<br>
+			DEFAULT_NETWORK = planet.generic.commonapi.NetworkImpl<br>
+			<br>
+			# Properties for ApplicationFactory<br>
+			DEFAULT_APPLICATION = planet.test.dht.ChordDHTApplication<br>
+			DEFAULT_IDCLASS = planet.chord.ChordId<br>
+			<br>
+			# Properties for NodeFactory<br>
+			DEFAULT_IDFACTORY = planet.generic.commonapi.factory.IdFactoryImpl<br>
+			DEFAULT_NODECLASS = planet.chord.ChordNode<br>
+			<br>
+			# Properties for NodeHandleFactory<br>
+			DEFAULT_NODEHANDLECLASS = planet.generic.commonapi.NodeHandleImpl<br>
+			<br>
+			# Properties for NetworkFactory<br>
+			# The IdFactory can read DEFAULT_TOPOLOGY and DEFAULT_SIZE<br>
+			# to build Ids.<br>
+			DEFAULT_NODEFACTORY = 
+			planet.generic.commonapi.factory.NodeFactoryImpl<br>
+			#Topology values: Random | Circular | Serialized<br>
+			DEFAULT_TOPOLOGY = Circular<br>
+			DEFAULT_SIZE = 100<br>
+			DEFAULT_K = 32<br>
+			DEFAULT_SERIALIZEDFILE = simdata.dat<br>
+			<br>
+			#Properties for MessagePool<br>
+			DEFAULT_ROUTEMESSAGE = planet.generic.commonapi.RouteMessageImpl<br>
+			<br>
+			#Properties for EndPointFactory<br>
+			DEFAULT_ENDPOINT = planet.generic.commonapi.EndPointImpl</font></p>
+	</blockquote>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2">c) Overlay 
+		Properties&nbsp; (ex. Chord)&nbsp;</font></span></p>
+	<blockquote>
+		<p class="MsoNormal"><font size="2"># Events<br>
+		DEFAULT_STABILIZE_STEPS = 10<br>
+		<br>
+		# Events<br>
+		DEFAULT_FIX_FINGER_STEPS = 5<br>
+		<br>
+		# Successor List Lenght<br>
+		DEFAULT_SUCC_LIST_MAX = 16</font></p>
+	</blockquote>
+                </div>
+				<div class="app">
+    <h3><span style="background-repeat: repeat"><font size="2">Test</font></span></h3>
+		<p class="MsoNormal"><span lang="EN-US"><font size="2">To test PlanetSim 
+		just go to the scripts directory and executes test<br>
+		<br>
+&nbsp;</font></span></p>
+		<p class="MsoNormal"><span lang="EN-US"><font size="2">&gt;&gt; cd bin<br>
+		<br>
+		&gt;&gt; ant test</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US">
+		<font size="2">&nbsp;</font></span></p>
+		<p class="MsoNormal"><span lang="EN-US"><font size="2">To see the 
+		results, enter to bin directory to find the report web directory</font></span></p>
+		<b><a href="http://path_planetsim/bin/report/index.html">
+	<span lang="en-us" style="text-decoration: none"><font size="2">file</font></span></a><span lang="EN-US"><font size="2">://PATH_PlanetSim/bin/report/index.html</font></span></b><p></br></p>
+    </p>
+                </div>
+              </div>
+            </td>
+          </tr>
+          </table>
+        <div id="footer">
+          <table border="0" style="width:100%" cellpadding="4" cellspacing="0">
+            <tr>
+              <td>
+<font size="2">© 2003-2004 Rubén Mondéjar
+<a href="mailto:%3Ccpairot@etse.urv.es">&lt;Ruben.Mondejar@estudiants.urv.es</a>&gt;</font></td>
+            </tr>
+          </table>
+        </div>
+      </body>
+    </html>
+  

@@ -1,0 +1,342 @@
+<html>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html>
+      <head>
+          <title>
+            PlanetSim: An Overlay Network Simulation Framework - Welcome
+          </title>
+        <style type="text/css">
+          @import url("style/tigris.css");
+          @import url("style/maven.css");
+		span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+</style>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+      </head>
+      <body class="composite">
+        <div id="banner">
+          <table border="0" width="100%" cellpadding="8" cellspacing="0">
+            <tr>
+              <td>
+                  <img border="0" src="images/planetsimlogo.jpg" width="251" height="157"><span style="text-decoration: none"><a href="index.htm"></img></a></span>
+                  <span style="text-decoration: none">&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span style="font-weight: 700"><a href="index.html">An Overlay Network Simulation Framework</a></span></span></td>
+              <td width="222">
+                <div id="login" align="right">
+                    <p><a href="http://ants.etse.urv.es/planet">
+                    <img border="0" src="images/logoplanet.jpg" width="150" height="142"></a></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div id="breadcrumbs">
+          <table border="0" width="98%" cellpadding="4" cellspacing="0">
+            <tr>
+                <td width="286"><font size="2">Last Updated: 11th April, 2005</font></td>
+              <td>
+                <div align="right">
+      <font size="2">
+		<a href="http://ants.etse.urv.es/planet"><img class="handle" src="images/none.png" alt=""></img>PLANET Project Page</a>
+      |
+      <a href="http://www.etse.urv.es/recerca/ast/"><img class="handle" src="images/none.png" alt=""></img></a><a href="http://www.etse.urv.es/recerca/ast/">AST 
+		Research Group</a>&nbsp;
+		</font>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <table border="0" width="100%" cellpadding="8" cellspacing="0"> 
+          <tr valign="top">
+            <td width="126" id="leftcol">
+              <div id="navcolumn">
+    <div>
+      <strong>PlanetSim</strong><div>
+      <small><a href="#Description"><img class="handle" src="images/none.png" alt=""></img>Description</a></small><br>
+  	  <small><a href="#Architecture"><img class="handle" src="images/none.png" alt=""></img>Architecture</a></small><br>
+	  <small><a href="#Downloads"><img class="handle" src="images/none.png" alt=""></img>Downloads</a></small><br>
+	  <small><a href="#Authors"><img class="handle" src="images/none.png" alt=""></img>Authors</a></small><br>
+      <small><a href="#Publications_"><img class="handle" src="images/none.png" alt=""></img>Publications</a></small><br>
+   	  <small><a href="#Related_Work"><img class="handle" src="images/none.png" alt=""></img>Related Work</a></small><br>
+  	  <small><a href="#TODO"><img class="handle" src="images/none.png" alt=""></img>TODO List</a></small><br>
+    </div>
+<br>
+
+	  <strong>Documentation</strong>
+    <div>
+      <small>
+      	<a href="api/index.html" ><img class="handle" src="images/none.png" alt="">Javadoc (API)</a></small></div>
+    <div>
+      <small>
+ 		<a href="docs.html"><img class="handle" src="images/none.png" alt="">Installation guide</a>
+      </small>
+    </div>
+    <div>
+      <small>
+   	   <a href="devel.html"><img class="handle" src="images/none.png" alt="">Developer's 
+      guide</a></small><br>&nbsp;</div>
+    </div>
+  </div>
+
+            </td>
+            <td rowspan="2">
+              <div id="bodycol">
+                <div class="app">
+    <div class="h3">
+        <h3>
+          <font size="2"><a name="Description">Description</a></font></h3>
+			<p style="text-align: justify; text-autospace: none">
+			<span lang="EN-GB"><font size="2">PlanetSim is an object oriented simulation 
+			framework for overlay networks and services. This framework presents 
+			a layered and modular architecture with well defined hotspots 
+			documented using classical design patterns. In PlanetSim, developers 
+			can work at two main levels: creating and testing new overlay 
+			algorithms like Chord or Pastry, or creating and testing new 
+			services (DHT, CAST, DOLR, etc) on top of existing overlays. </font> </span>
+			</p>
+			<p style="text-align: justify; text-autospace: none">
+			<span lang="EN-GB"><font size="2">PlanetSim also aims to enable a smooth transition 
+			from simulation code to experimentation code running in the 
+			Internet. Because of this, we provide wrapper code that takes care 
+			of network communication and permits us to run the same code in 
+			network testbeds such as PlanetLab. Moreover, distributed services 
+			in the simulator use the Common API for Structured Overlays. This 
+			enables complete transparency to services running either against the 
+			simulator or the network.</font></span></p>
+			<p style="text-align: justify; text-autospace: none">
+			<span lang="EN-GB"><font size="2">PlanetSim has been developed in the Java language 
+			to reduce complexity and smooth the learning curve in our framework. 
+			We however have profiled and optimised the code to enable scalable 
+			simulations in reasonable time. To validate the utility of our 
+			approach, we have implemented two overlays (Chord and Symphony) and 
+			a variety of services like CAST, DHT, and object middleware. We have 
+			proved that PlanetSim reproduces the measures of these environments 
+			and is also efficient in its network implementation.</font></span></p>
+      
+      
+        <h3>
+          <font size="2">PlanetSim <a name="Architecture">Architecture</a></font></h3>
+		<p style="text-align: justify"><span lang="EN-GB"><font size="2">PlanetSim&#8217;s architecture comprises 
+		three main extension layers constructed one atop another. Applications 
+		are built in the upper layer using the standard Common API façade. This 
+		façade is built on the routing services offered by the underlying 
+		overlay layer. Besides, the overlay layer obtains proximity information 
+		to other nodes asking information to the Network layer.
+		</font></span></p>
+		<p style="text-align: justify"><span lang="EN-GB"><font size="2">The Simulator dictates the overall life cycle of the framework by 
+		calling the appropriate methods in the overlay's Node and obtaining 
+		routing information to dispatch messages through the Network.</font></span></p>
+		<p style="text-align: justify">&nbsp;</p>
+		<p style="text-align: center">
+		<img border="0" src="images/layers.jpg"></p>
+		<p>&nbsp;</br></p>
+		<h3><span style="background-repeat: repeat"><font size="2">
+		<a name="Downloads">Downloads</a></font></span></h3>
+		<table cellSpacing="0" cellPadding="8" width="100%" border="0" id="table1">
+			<tr vAlign="top">
+				<td rowSpan="2">
+				<div id="bodycol0">
+					<div class="app">
+						<div class="h3">
+							<blockquote>
+								<p><font size="2"><i>Distribution</i>: Source 
+								and binary code, written and compiled in Java 
+								v1.4.2. <i>License</i>: PlanetSim is available 
+								under a
+								<a href="http://www.gnu.org/copyleft/lesser.html">
+								LGPL</a>-like license.</font></p>
+								<ul>
+									<li><font size="2">April 11, 2005. Release 2.0.2 Alpha.</font>
+									<ul>
+									   <li><font size="2"><u>Release Notes</u>:
+									   Fixed bugs that correct the selected nodes as bootstrap on the behaviours based implementation.<br>
+									   This version will be optimized to guarantee the same efficiency and speedup found in the release 1.0.</font></li>
+									   <li><font size="2"><b><u>Download</u></b>:
+									   <a href="planetsim_2.0.2.zip">planetsim_2.0.2.zip</a> [source + binaries + javadoc]</font></li>
+									</ul>
+									<li><font size="2">April 8, 2005. Release 
+									2.0.1 Alpha.</font> 
+									<ul>
+										<li><font size="2"><u>Release Notes</u>:
+										</font><font size="2">Fixed bugs that permits run correctly the application layer over the new Symphony implementation, based on behaviours. <br>
+										This version will be optimized to guarantee the same 
+										efficiency and speedup found in the release 1.0.</font></li>
+										<li><font size="2"><b><u>Download</u></b>:
+										<a href="planetsim_2.0.1.zip">
+										planetsim_2.0.1.zip</a> [source + binaries + javadoc]</font> </li>
+									</ul>
+									</li>
+
+									<li><font size="2">March 13, 2005. Release 
+									2.0 Alpha.</font> 
+									<ul>
+										<li><font size="2"><u>Release Notes</u>:
+										</font><font size="2">This version 
+										mantains the Chord and Symphony overlay 
+										implementations under the simulation 
+										framework.<br>
+										Also includes GML output generation, fixed
+										bugs on Id generation, added new methods
+										as upcalls and downcalls between application
+										and node layer and more.<br>
+										The Symphony overlay implementation has been
+										replaced with another one based on Behaviours.<br>
+										It also includes the Javadoc html 
+										documentation. <br>
+										This version will be optimized to guarantee the same 
+										efficiency and speedup found in the earlier release.</font></li>
+										<li><font size="2"><b><u>Download</u></b>:
+										<a href="planetsim_2.0.zip">
+										planetsim_2.0.zip</a> [source + binaries + javadoc]</font> </li>
+									</ul>
+									</li>
+
+									<li><font size="2">July 09, 2004. Release 
+									1.0.</font> 
+									<ul>
+										<li><font size="2"><u>Release Notes</u>:
+										</font><font size="2">This version 
+										includes the Chord and Symphony overlay 
+										implementations under the simulation 
+										framework.<br>
+										It also includes the Javadoc html 
+										documentation. </font></li>
+										<li><font size="2"><b><u>Download</u></b>:
+										<a href="planetsim_1_0.zip">
+										planetsim_1_0.zip</a> [source + binaries 
+										]</font> </li>
+									</ul>
+									</li>
+								</ul>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+				</td>
+			</tr>
+		</table>
+		<p>&nbsp;</p>
+		<h3><span style="background-repeat: repeat"><font size="2">
+		<a name="Authors">Authors</a></font></span></h3>
+		<blockquote>
+	<P><b><font size="2">Jordi Pujol Ahulló</font></b><font size="2">, M. Sc. Computer Science 
+        Student in the Department of Computer Science and Mathematics at 
+        Universitat Rovira i Virgili in Tarragona, Catalonia, Spain. Contact</font> 
+	&lt;<a href="mailto:jordi.pujol@estudiants.urv.es">jordi.pujol@estudiants.urv.es</a>&gt;
+	</P>
+
+	<p><font size="2"><b><a href="http://ants.etse.urv.es/planet/rmondejar">Rubén Mondéjar Andreu</a></b>, 
+	M. Sc. Computer Science Student in the Department of Computer Science and 
+	Mathematics at Universitat Rovira i Virgili in Tarragona, Catalonia, 
+	Spain. Contact</font> 
+	&lt;<a href="mailto:ruben.mondejar@estudiants.urv.es">ruben.mondejar@estudiants.urv.es</a>&gt;
+	</p>
+
+	<P><b><font size="2">Helio Tejedor Navarro</font></b><font size="2">, M. Sc. Computer Science 
+        Student in the Department of Computer Science and Mathematics at 
+        Universitat Rovira i Virgili in Tarragona, Catalonia, Spain. Contact</font> 
+	&lt;<a href="mailto:heliodoro.tejedor@estudiants.urv.es">heliodoro.tejedor@estudiants.urv.es</a>&gt;
+      	</P>
+        <P><b><font size="2">Marc Sanchez Artigas</font></b><font size="2">, PhD student in the Department
+	of Computer Science and Mathematics at Universitat Rovira i Virgili in Tarragona, Catalonia, Spain. 
+	Contact </font>
+        &lt;<a href="mailto:marc.sanchez@estudiants.urv.es">marc.sanchez@estudiants.urv.es</a>&gt;
+      	</P>
+
+	<p><font size="2"><b><a href="http://www.etse.urv.es/~pgarcia">Pedro 
+	García López</a></b>, full-time professor in the Department of 
+	Computer Science and Mathematics at Universitat Rovira i Virgili in 
+	Tarragona, Catalonia, Spain. Contact
+	&lt;<a href="mailto:pgarcia@etse.urv.es">pgarcia@etse.urv.es</a>&gt;
+	</font></p>
+
+	<p><font size="2"><b><a href="http://www.etse.urv.es/~cpairot">Carles Pairot Gavaldà</a></b>, 
+	PhD student in the Department of Computer Science and Mathematics at Universitat Rovira i Virgili in 
+	Tarragona, Catalonia, Spain. Contact
+	&lt;<a href="mailto:cpairot@etse.urv.es">cpairot@etse.urv.es</a>&gt;
+	</font></p>
+						    
+		</blockquote>
+	
+	<h3><font size="2"><a name="Publications_">Publications</a></font></h3>
+		<p>&nbsp;</p>
+		<p><font size="2"><b>2005</b>
+		<ul>
+		<li>Pedro García, Carles Pairot, Rubén Mondéjar, Jordi Pujol, Helio Tejedor, and Robert Rallo.   <b><a href="http://www.springerlink.com/index/10.1007/11407386_10" target="_blank">PlanetSim: A New Overlay Network Simulation Framework</a></b>. Lecture Notes in Computer Science (LNCS), Volume 3437. Software Engineering and Middleware, SEM 2004, Linz, Austria. Revised Selected Papers. March 2005, pp. 123-137. ISSN: 0302-9743. ISBN: 3-540-25328-9.
+		</li>
+		</ul>
+		<b>2004</b>
+		<ul>
+		<li>Pedro García, Carles Pairot, Rubén Mondéjar, Jordi Pujol, Helio Tejedor, and Robert Rallo.  <b>PlanetSim: A New Overlay Network Simulation Framework</b>. Proceedings of the 19th IEEE International Conference on Automated Software Engineering (ASE 2004). Workshop on Software Engineering and Middleware (SEM 2004). Linz, Austria, September 2004. ISBN: 3-902457-02-3. Acceptance Rate: 34%.
+		</li>
+		</ul>
+		</font></p>
+		<p>&nbsp;</p>
+		<h3><span style="background-repeat: repeat">
+		<font size="2"><a name="Related_Work">Related Work</a></font></span></h3>
+		<blockquote>
+			<p><font size="2">The Chord Project</font></p>
+			<p><a href="http://www.pdos.lcs.mit.edu/chord/">
+			<font size="2" color="#006699">http://www.pdos.lcs.mit.edu/chord/</font></a></p>
+			<p><font size="2">Pastry, Scribe, FreePastry</font></p>
+			<p><a href="http://freepastry.rice.edu/">
+			<font size="2" color="#006699">http://freepastry.rice.edu/</font></a></p>
+			<p><font size="2">P2Psim </font></p>
+			<p><a href="http://www.pdos.lcs.mit.edu/p2psim/">
+			<font size="2" color="#006699">http://www.pdos.lcs.mit.edu/p2psim/</font></a></p>
+			<p><font size="2">MACEDON </font></p>
+			<p><a href="http://macedon.kcubes.com/">
+			<font size="2" color="#006699">http://macedon.kcubes.com/</font></a><br>
+&nbsp;</p>
+		</blockquote>
+		<h3><span style="background-repeat: repeat">
+		<font size="2"><a name="TODO">TODO</a> List</font></span></h3>
+		<p><font size="2">This framework is an open project, we present the new 
+		features that can be implement by anyone.</font></p>
+		<blockquote>
+			<p><b><font size="2">Priority messages</font></b></p>
+			<p><font size="2">Now priority of the all message are the same.</font></p>
+			<p><b><font size="2">Proximity</font></b></p>
+			<p><font size="2">In the current version, for the framework the real 
+		distance between the nodes does not have importance.</font></p>
+			<p><b><font size="2">NetworkWrapper evolution</font></b></p>
+			<p><font size="2">In this moment, the experimentation part is a alpha 
+		version.</font></p>
+			<p><b><font size="2">Viewer Tools</font></b></p>
+			<p><font size="2">It would be interesting that the results be presented 
+		in a 3D model for example.</font></p>
+			<p><b><font size="2">Distributed simulator</font></b></p>
+			<p><font size="2">It would be interesting too, that the framework don't 
+		only works in a unique machine, to distributed the load in a machine set 
+		(LAN,cluster, etc).</font></p>
+			<p><b><font size="2">New overlay protocols</font></b></p>
+			<p><font size="2">We have said one of the few extension of the framework 
+		is the protocol extension, so can be implement new overlays as Pastry, 
+		Kademlia, etc....</font></p>
+			<p><b><font size="2">New applications</font></b></p>
+			<p><font size="2">The same of the previous feature, but in this case the 
+		extension is at the application level.</font></p>
+		</blockquote>
+		<p></br></p>
+		</p>
+    </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          </table>
+        <div id="footer">
+          <table border="0" style="width:100%" cellpadding="4" cellspacing="0">
+            <tr>
+              <td>
+<font size="2">© 2003-2004 Rubén Mondéjar
+&lt;<a href="mailto:ruben.mondejar@etse.urv.es">Ruben.Mondejar@estudiants.urv.es</a>&gt;</font></td>
+            </tr>
+          </table>
+        </div>
+      </body>
+    </html>
+    

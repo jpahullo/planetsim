@@ -1,0 +1,93 @@
+BODY {
+	BACKGROUND: #ffffff; COLOR: #1f354d
+}
+.app H3 {
+	COLOR: #ffffff; BACKGROUND-COLOR: #a2b7c5
+}
+.app H4 {
+	COLOR: #1f354d; BACKGROUND-COLOR: #f2f5f7
+}
+.a TD {
+	BACKGROUND: #f5f4f1; COLOR: #000000
+}
+.b TD {
+	BACKGROUND: #eeeeee; COLOR: #000000
+}
+.app TH {
+	COLOR: #686868; BACKGROUND-COLOR: #dddddd
+}
+DIV#banner {
+	BORDER-TOP: #a2b7c5 1px solid; BORDER-BOTTOM: #a2b7c5 1px solid
+}
+#banner {
+	BACKGROUND: #ffffff; COLOR: #ffffff
+}
+#banner TD {
+	BACKGROUND: #ffffff; COLOR: #ffffff
+}
+#leftcol {
+	BORDER-RIGHT: #a2b7c5 1px solid; BORDER-TOP: #f2f5f7 1px solid; BACKGROUND: #f2f5f7; COLOR: #000000; BORDER-BOTTOM: #a2b7c5 1px solid
+}
+#navcolumn {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BACKGROUND: #f2f5f7; COLOR: #000000; BORDER-BOTTOM: medium none
+}
+#breadcrumbs {
+	BORDER-TOP: #d5e1e9 1px solid; COLOR: #000000; BORDER-BOTTOM: #a2b7c5 1px solid; BACKGROUND-COLOR: #d5e1e9
+}
+#source {
+	BORDER-RIGHT: #a2b7c5 1px solid; BORDER-TOP: #a2b7c5 1px solid; MARGIN-TOP: 1em; MARGIN-LEFT: 7px; BORDER-LEFT: #a2b7c5 1px solid; COLOR: #000000; MARGIN-RIGHT: 7px; BORDER-BOTTOM: #a2b7c5 1px solid; BACKGROUND-COLOR: #ffffff
+}
+#source PRE {
+	MARGIN-LEFT: 7px; MARGIN-RIGHT: 7px
+}
+UNKNOWN {
+	
+}
+A:link {
+	COLOR: #1f354d
+}
+#breadcrumbs A:visited {
+	COLOR: #1f354d
+}
+#navcolumn A:visited {
+	COLOR: #1f354d
+}
+.app A:visited {
+	COLOR: #1f354d
+}
+.tasknav A:visited {
+	COLOR: #1f354d
+}
+A:active {
+	COLOR: #ff5a00! important
+}
+A:hover {
+	COLOR: #ff5a00! important
+}
+#leftcol A:active {
+	COLOR: #ff5a00! important
+}
+#leftcol A:hover {
+	COLOR: #ff5a00! important
+}
+A.selfref:link {
+	COLOR: #1f354d! important
+}
+A.selfref:visited {
+	COLOR: #1f354d! important
+}
+H3 {
+	MARGIN-TOP: 1em; MARGIN-BOTTOM: 0px
+}
+H4 {
+	MARGIN-TOP: 1em; MARGIN-BOTTOM: 0px
+}
+IMG.handle {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 2px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+#navcolumn DIV DIV {
+	BACKGROUND-IMAGE: none; BACKGROUND-REPEAT: no-repeat
+}
+#navcolumn DIV DIV {
+	PADDING-LEFT: 10px
+}

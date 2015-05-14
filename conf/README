@@ -1,0 +1,68 @@
+PlanetSim
+---------------
+@author Jordi Pujol jordi.pujol@estudiants.urv.es
+http://ants.etse.urv.es/planetsim
+
+1. Presentation
+----------------------
+
+This is the release PlanetSim 3.0. Its use and modification is under
+LGPL Licence.
+
+These properties files permit the execution of all existing tests. The main
+property file is 'master.properties' and is the bridge between the current
+test under execution and its related configuration file. The rest of files
+contain all required values for the configuration of each overlay and test.
+
+2. Content
+----------------------
+
+The structure is the following:
+
+master properties file: 
+    master.properties
+    
+Chord specific configuration file (test dependant):
+	chord.properties
+	chord_broadcast.properties
+	chord_dht.properties
+	chord_dht2.properties
+	chord_scribe.properties
+	chord_serialize.properties
+	
+Symphony specific configuration file (test dependant):
+    symphony.properties
+    symphony_dht2.properties
+    symphony_serialize.properties
+    
+Trivial P2P specific configuration file (test dependant):
+    trivial.properties
+    
+      
+3. Feedback
+-----------------------
+
+You can make a very good feedback send us your suggestions,
+implemented extensions, fixed bugs or the errors.
+Send an email to Jordi Pujol <jordi.pujol@estudiants.urv.es>
+
+On any error or problem cases, you have to send these information:
+
+1. Version of Planetsim in use
+2. Short description of the error (or problem)
+3. The detail of the main classes that take part (executed test, etc.)
+4. The related stack trace (if exists)
+5. Any other remarkable information.
+
+NOTE: The maximum size of the sent mail is 3MB.
+
+
+-----
+
+Jordi Pujol
+Planet Project Member
+
+Planet: http://ants.etse.urv.es/planet
+PlanetSim: http://ants.etse.urv.es/planetsim
+
+July 20, 2005

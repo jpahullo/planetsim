@@ -1,0 +1,5 @@
+at 3 JOIN 0 0 1
+at 7 JOIN 1 0 1
+at 10 JOIN 3 0 1
+at 15 JOIN 6 0 1
+at 25 LEAVE 1 1

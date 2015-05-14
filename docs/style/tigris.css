@@ -1,0 +1,906 @@
+BODY {
+	BACKGROUND: #fff; COLOR: #000
+}
+.app H3 {
+	BACKGROUND-IMAGE: url(../images/nw_maj_rond.gif); BACKGROUND-REPEAT: no-repeat
+}
+.app H4 {
+	BACKGROUND-IMAGE: url(../images/nw_maj_rond.gif); BACKGROUND-REPEAT: no-repeat
+}
+.tabs TD {
+	BACKGROUND-IMAGE: url(../images/nw_maj_rond.gif); BACKGROUND-REPEAT: no-repeat
+}
+.tabs TH {
+	BACKGROUND-IMAGE: url(../images/nw_maj_rond.gif); BACKGROUND-REPEAT: no-repeat
+}
+.functnbar {
+	BACKGROUND-IMAGE: url(../images/nw_maj_rond.gif); BACKGROUND-REPEAT: no-repeat
+}
+.functnbar {
+	BACKGROUND-COLOR: #aaa
+}
+.functnbar2 {
+	BACKGROUND-COLOR: #aaa
+}
+.functnbar2 {
+	BACKGROUND-POSITION: left bottom; BACKGROUND-IMAGE: url(../images/sw_maj_rond.gif); BACKGROUND-REPEAT: no-repeat; BACKGROUND-COLOR: #aaa
+}
+.functnbar3 {
+	BACKGROUND-POSITION: left bottom; BACKGROUND-IMAGE: url(../images/sw_maj_rond.gif); BACKGROUND-REPEAT: no-repeat; BACKGROUND-COLOR: #aaa
+}
+.functnbar3 {
+	BACKGROUND-IMAGE: url(../images/sw_med_rond.gif); BACKGROUND-COLOR: #ddd
+}
+.functnbar {
+	COLOR: #000
+}
+.functnbar2 {
+	COLOR: #000
+}
+.functnbar3 {
+	COLOR: #000
+}
+.functnbar A {
+	COLOR: #000; TEXT-DECORATION: underline
+}
+.functnbar2 A {
+	COLOR: #000; TEXT-DECORATION: underline
+}
+.functnbar3 A {
+	COLOR: #000; TEXT-DECORATION: underline
+}
+#navcolumn .body DIV {
+	BACKGROUND-POSITION: 0.5em 0.5em; BACKGROUND-IMAGE: url(../images/strich.gif); BACKGROUND-REPEAT: no-repeat
+}
+BODY.docs #toc LI LI {
+	BACKGROUND-POSITION: 0.5em 0.5em; BACKGROUND-IMAGE: url(../images/strich.gif); BACKGROUND-REPEAT: no-repeat
+}
+#searchbox .body DIV {
+	BACKGROUND-IMAGE: none
+}
+#navcolumn .body .heading {
+	BACKGROUND-IMAGE: none
+}
+A:link {
+	COLOR: blue
+}
+#navcolumn A:visited {
+	COLOR: blue
+}
+.app A:visited {
+	COLOR: blue
+}
+.tasknav A:visited {
+	COLOR: blue
+}
+A.selfref:link {
+	COLOR: #555! important; TEXT-DECORATION: none
+}
+A.selfref:visited {
+	COLOR: #555! important; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #f30! important
+}
+A:hover {
+	COLOR: #f30! important
+}
+#leftcol A:active {
+	COLOR: #f30! important
+}
+#leftcol A:hover {
+	COLOR: #f30! important
+}
+#leftcol A {
+	TEXT-DECORATION: none
+}
+#breadcrumbs A {
+	TEXT-DECORATION: none
+}
+.app H3 {
+	COLOR: #fff
+}
+.app H4 {
+	COLOR: #fff
+}
+.app H3 {
+	BACKGROUND-COLOR: #333
+}
+.app H3 A:link {
+	COLOR: #fff! important; TEXT-DECORATION: underline
+}
+.app H3 A:visited {
+	COLOR: #fff! important; TEXT-DECORATION: underline
+}
+.app H4 A:link {
+	COLOR: #fff! important; TEXT-DECORATION: underline
+}
+.app H4 A:visited {
+	COLOR: #fff! important; TEXT-DECORATION: underline
+}
+.app H4 {
+	BACKGROUND-COLOR: #888
+}
+.a TD {
+	BACKGROUND: #ddd
+}
+.b TD {
+	BACKGROUND: #efefef
+}
+TABLE {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none
+}
+TH {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none
+}
+TD {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none
+}
+DIV.colbar {
+	BORDER-RIGHT: #eee 1px solid; BORDER-TOP: #999 1px solid; BACKGROUND: #eee; BORDER-LEFT: #999 1px solid; BORDER-BOTTOM: #eee 1px solid
+}
+.toolgroup {
+	BACKGROUND: #efefef
+}
+.toolgroup .label {
+	BORDER-RIGHT: #666 1px solid; BACKGROUND: #ddd; COLOR: #555; BORDER-BOTTOM: #666 1px solid
+}
+.toolgroup .body {
+	BORDER-RIGHT: #aaa 1px solid; BORDER-BOTTOM: #aaa 1px solid
+}
+#breadcrumbs {
+	BORDER-TOP: #fff 1px solid; BACKGROUND-COLOR: #ccc
+}
+#main {
+	BORDER-TOP: #999 1px solid
+}
+#rightcol DIV.www {
+	BORDER-RIGHT: #ddd 1px solid; BORDER-TOP: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; BORDER-BOTTOM: #ddd 1px solid
+}
+#rightcol DIV.help {
+	BORDER-RIGHT: #ddd 1px solid; BORDER-TOP: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; BORDER-BOTTOM: #ddd 1px solid
+}
+BODY.docs DIV.docs {
+	BORDER-TOP: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; BACKGROUND-COLOR: #fff
+}
+#helptext .label {
+	BACKGROUND-POSITION: 97% 50%; BACKGROUND-IMAGE: url(../images/icon_help_sml.gif); BACKGROUND-REPEAT: no-repeat
+}
+BODY.docs {
+	BACKGROUND: url(../images/help_logo.gif) #eee no-repeat right top
+}
+.docs H3 {
+	BORDER-TOP: #000 1px solid
+}
+.docs H4 {
+	BORDER-TOP: #000 1px solid
+}
+#apphead H2 EM {
+	COLOR: #777
+}
+.app TH {
+	BACKGROUND-COLOR: #bbb
+}
+.tabs TH {
+	BORDER-RIGHT: #333 1px solid; BORDER-LEFT: #fff 1px solid; COLOR: #fff; BACKGROUND-COLOR: #ddd
+}
+.tabs TD {
+	BORDER-RIGHT: #fff 1px solid; BORDER-LEFT: #fff 1px solid; BORDER-BOTTOM: #fff 1px solid; BACKGROUND-COLOR: #999
+}
+.tabs {
+	BORDER-BOTTOM: #ddd 6px solid
+}
+.tabs TH {
+	COLOR: #555
+}
+.tabs TH A:link {
+	COLOR: #555
+}
+.tabs TH A:visited {
+	COLOR: #555
+}
+.tabs TD {
+	COLOR: #fff
+}
+.tabs TD A:link {
+	COLOR: #fff
+}
+.tabs TD A:visited {
+	COLOR: #fff
+}
+.tabs A {
+	TEXT-DECORATION: none
+}
+.axial TH {
+	COLOR: black; BACKGROUND-COLOR: #ddd
+}
+.alert {
+	BACKGROUND-COLOR: #ff9
+}
+.expandedwaste {
+	BACKGROUND: url(../images/icon_arrowwaste2_sml.gif) no-repeat
+}
+.collapsedwaste {
+	BACKGROUND: url(../images/icon_arrowwaste1_sml.gif) no-repeat
+}
+.filebrowse .expanded {
+	BACKGROUND-IMAGE: url(../images/icon_arrowfolderopen2_sml.gif); BACKGROUND-REPEAT: no-repeat
+}
+.filebrowse-alt .expanded {
+	BACKGROUND-IMAGE: url(../images/icon_arrowfolderopen2_sml.gif); BACKGROUND-REPEAT: no-repeat
+}
+.filebrowse .collapsed {
+	BACKGROUND-IMAGE: url(../images/icon_arrowfolderclosed1_sml.gif); BACKGROUND-REPEAT: no-repeat
+}
+.filebrowse-alt .collapsed {
+	BACKGROUND-IMAGE: url(../images/icon_arrowfolderclosed1_sml.gif); BACKGROUND-REPEAT: no-repeat
+}
+.filebrowse .leafnode {
+	BACKGROUND-IMAGE: url(../images/icon_folder_sml.gif); BACKGROUND-REPEAT: no-repeat
+}
+.filebrowse-alt .leafnode {
+	BACKGROUND-IMAGE: url(../images/icon_folder_sml.gif); BACKGROUND-REPEAT: no-repeat
+}
+.filebrowse .leaf {
+	BACKGROUND-IMAGE: url(../images/icon_doc_sml.gif); BACKGROUND-REPEAT: no-repeat
+}
+.filebrowse-alt .leaf {
+	BACKGROUND-IMAGE: url(../images/icon_doc_sml.gif); BACKGROUND-REPEAT: no-repeat
+}
+.sortup {
+	BACKGROUND: url(../images/icon_sortup.gif) no-repeat
+}
+.sortdown {
+	BACKGROUND: url(../images/icon_sortdown.gif) no-repeat
+}
+.collapsedwaste {
+	BACKGROUND: url(../images/icon_arrowwaste1_sml.gif) no-repeat
+}
+BODY .grid TD {
+	BORDER-TOP: #ccc 1px solid; BORDER-LEFT: #ccc 1px solid; BACKGROUND-COLOR: transparent
+}
+.confirm {
+	COLOR: #090
+}
+.info {
+	COLOR: #069
+}
+.errormessage {
+	BACKGROUND-POSITION: 5px 1.33em; BORDER-TOP: #900 5px solid; BACKGROUND-IMAGE: url(../images/icon_error_lrg.gif); BORDER-LEFT: #900 1px solid; BACKGROUND-REPEAT: no-repeat
+}
+.warningmessage {
+	BACKGROUND-POSITION: 5px 1.33em; BORDER-TOP: #900 5px solid; BACKGROUND-IMAGE: url(../images/icon_error_lrg.gif); BORDER-LEFT: #900 1px solid; BACKGROUND-REPEAT: no-repeat
+}
+.donemessage {
+	BACKGROUND-POSITION: 5px 1.33em; BORDER-TOP: #900 5px solid; BACKGROUND-IMAGE: url(../images/icon_error_lrg.gif); BORDER-LEFT: #900 1px solid; BACKGROUND-REPEAT: no-repeat
+}
+.infomessage {
+	BACKGROUND-POSITION: 5px 1.33em; BORDER-TOP: #900 5px solid; BACKGROUND-IMAGE: url(../images/icon_error_lrg.gif); BORDER-LEFT: #900 1px solid; BACKGROUND-REPEAT: no-repeat
+}
+.warningmessage {
+	BORDER-LEFT-COLOR: #c60; BACKGROUND-IMAGE: url(../images/icon_warning_lrg.gif); BORDER-BOTTOM-COLOR: #c60; BORDER-TOP-COLOR: #c60; BORDER-RIGHT-COLOR: #c60
+}
+.donemessage {
+	BORDER-LEFT-COLOR: #090; BACKGROUND-IMAGE: url(../images/icon_success_lrg.gif); BORDER-BOTTOM-COLOR: #090; BORDER-TOP-COLOR: #090; BORDER-RIGHT-COLOR: #090
+}
+.infomessage {
+	BORDER-LEFT-COLOR: #069; BACKGROUND-IMAGE: url(../images/icon_info_lrg.gif); BORDER-BOTTOM-COLOR: #069; BORDER-TOP-COLOR: #069; BORDER-RIGHT-COLOR: #069
+}
+.docinfo {
+	BACKGROUND: url(../images/icon_doc_lrg.gif) no-repeat
+}
+.dirinfo {
+	BACKGROUND: url(../images/icon_folder_lrg.gif) no-repeat
+}
+.memberinfo {
+	BACKGROUND: url(../images/icon_members_lrg.gif) no-repeat
+}
+.usergroupinfo {
+	BACKGROUND: url(../images/icon_usergroups_lrg.gif) no-repeat
+}
+.errormark {
+	BACKGROUND: url(../images/icon_error_sml.gif) no-repeat
+}
+.warningmark {
+	BACKGROUND: url(../images/icon_error_sml.gif) no-repeat
+}
+.donemark {
+	BACKGROUND: url(../images/icon_error_sml.gif) no-repeat
+}
+.infomark {
+	BACKGROUND: url(../images/icon_error_sml.gif) no-repeat
+}
+.warningmark {
+	BACKGROUND-IMAGE: url(../images/icon_warning_sml.gif)
+}
+.donemark {
+	BACKGROUND-IMAGE: url(../images/icon_success_sml.gif)
+}
+.infomark {
+	BACKGROUND-IMAGE: url(../images/icon_info_sml.gif)
+}
+.cvsdiff {
+	BACKGROUND-COLOR: #ccc
+}
+.cvsblame {
+	BACKGROUND-COLOR: #ccc
+}
+.cvsdiffadd {
+	BACKGROUND-COLOR: #afa
+}
+.cvsdiffremove {
+	BACKGROUND-COLOR: #faa
+}
+.cvsdiffchanges1 {
+	BACKGROUND-COLOR: #ff7
+}
+.cvsdiffchanges2 {
+	BACKGROUND-COLOR: #ff7
+}
+LI.selection UL A {
+	BACKGROUND: #fff
+}
+.band1 {
+	COLOR: #fff; BACKGROUND-COLOR: #663
+}
+.band2 {
+	COLOR: #fff; BACKGROUND-COLOR: #66c
+}
+.band3 {
+	BACKGROUND-COLOR: #c99
+}
+.band4 {
+	BACKGROUND-COLOR: #cff
+}
+.band5 {
+	COLOR: #fff; BACKGROUND-COLOR: #336
+}
+.band6 {
+	COLOR: #fff; BACKGROUND-COLOR: #966
+}
+.band7 {
+	BACKGROUND-COLOR: #9cc
+}
+.band8 {
+	BACKGROUND-COLOR: #ffc
+}
+.band9 {
+	COLOR: #fff; BACKGROUND-COLOR: #633
+}
+.band10 {
+	COLOR: #fff; BACKGROUND-COLOR: #699
+}
+.band11 {
+	BACKGROUND-COLOR: #cc9
+}
+.band12 {
+	BACKGROUND-COLOR: #ccf
+}
+.band13 {
+	COLOR: #fff; BACKGROUND-COLOR: #366
+}
+.band14 {
+	COLOR: #fff; BACKGROUND-COLOR: #996
+}
+.band15 {
+	BACKGROUND-COLOR: #99c
+}
+.band16 {
+	BACKGROUND-COLOR: #fcc
+}
+.app .helplink {
+	CURSOR: help
+}
+#helptext .helplink {
+	CURSOR: help
+}
+.legend TH {
+	BACKGROUND-COLOR: #fff
+}
+.bars TH {
+	BACKGROUND-COLOR: #fff
+}
+BODY {
+	FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif
+}
+TH {
+	FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif
+}
+TD {
+	FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif
+}
+INPUT {
+	FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif
+}
+SELECT {
+	FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif
+}
+CODE {
+	FONT-FAMILY: 'Andale Mono', Courier, monospace
+}
+PRE {
+	FONT-FAMILY: 'Andale Mono', Courier, monospace
+}
+BODY {
+	FONT-SIZE: small; voice-family: inherit
+}
+.app H3 {
+	FONT-SIZE: small; voice-family: inherit
+}
+.app H4 {
+	FONT-SIZE: small; voice-family: inherit
+}
+#rightcol H3 {
+	FONT-SIZE: small; voice-family: inherit
+}
+PRE {
+	FONT-SIZE: small; voice-family: inherit
+}
+CODE {
+	FONT-SIZE: small; voice-family: inherit
+}
+#apphead H2 SMALL {
+	FONT-SIZE: small; voice-family: inherit
+}
+H4 {
+	FONT-SIZE: small; voice-family: inherit
+}
+TH {
+	FONT-SIZE: small; voice-family: inherit
+}
+TD {
+	FONT-SIZE: small; voice-family: inherit
+}
+SMALL {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+DIV#footer {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+DIV#login {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+DIV.tabs TH {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+DIV.tabs TD {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+INPUT {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+SELECT {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+.paginate {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+.functnbar {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+.functnbar2 {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+.functnbar3 {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+#breadcrumbs {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+.courtesylinks {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+#rightcol DIV.help {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+.colbar {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+.tasknav {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+BODY.docs DIV#toc {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+#leftcol {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+.legend {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+.bars {
+	FONT-SIZE: x-small; voice-family: inherit
+}
+.tabs TD {
+	FONT-WEIGHT: bold
+}
+.tabs TH {
+	FONT-WEIGHT: bold
+}
+DT {
+	FONT-WEIGHT: bold
+}
+.tasknav .selfref {
+	FONT-WEIGHT: bold
+}
+#login .username {
+	FONT-WEIGHT: bold
+}
+.selection {
+	FONT-WEIGHT: bold
+}
+LI.selection UL {
+	FONT-WEIGHT: normal
+}
+#apphead H2 EM {
+	FONT-STYLE: normal
+}
+#banner H1 {
+	FONT-SIZE: 1.25em
+}
+#bodycol H2 {
+	MARGIN-TOP: 0.3em; MARGIN-BOTTOM: 0.5em
+}
+P {
+	MARGIN-TOP: 0.67em; MARGIN-BOTTOM: 0.67em
+}
+UL {
+	MARGIN-TOP: 0.67em; MARGIN-BOTTOM: 0.67em
+}
+OL {
+	MARGIN-TOP: 0.67em; MARGIN-BOTTOM: 0.67em
+}
+DL {
+	MARGIN-TOP: 0.67em; MARGIN-BOTTOM: 0.67em
+}
+.bars TABLE {
+	MARGIN-TOP: 0.67em; MARGIN-BOTTOM: 0.67em
+}
+H3 {
+	MARGIN-BOTTOM: 0px
+}
+H4 {
+	MARGIN-BOTTOM: 0px
+}
+FORM {
+	MARGIN: 0px
+}
+#bodycol {
+	PADDING-RIGHT: 12px; PADDING-LEFT: 12px; WIDTH: auto; voice-family: inherit
+}
+UNKNOWN {
+	WIDTH: auto
+}
+.docs {
+	LINE-HEIGHT: 1.4
+}
+OL OL {
+	LIST-STYLE-TYPE: lower-alpha
+}
+OL OL OL {
+	LIST-STYLE-TYPE: lower-roman
+}
+.app H3 {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN-LEFT: 2px; MARGIN-RIGHT: 2px; PADDING-TOP: 5px
+}
+.app H4 {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN-LEFT: 2px; MARGIN-RIGHT: 2px; PADDING-TOP: 5px
+}
+.app TD {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px
+}
+.app TH {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px
+}
+.h3 P {
+	MARGIN-LEFT: 7px; MARGIN-RIGHT: 7px
+}
+.h4 P {
+	MARGIN-LEFT: 7px; MARGIN-RIGHT: 7px
+}
+.h3 DT {
+	MARGIN-LEFT: 7px; MARGIN-RIGHT: 7px
+}
+.h4 DT {
+	MARGIN-LEFT: 7px; MARGIN-RIGHT: 7px
+}
+.tasknav {
+	MARGIN-BOTTOM: 1.33em
+}
+DIV.colbar {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 2px 2px 0px; PADDING-TOP: 3px
+}
+.tabs {
+	MARGIN-TOP: 0.67em; PADDING-LEFT: 8px; MARGIN-LEFT: 2px; MARGIN-RIGHT: 2px
+}
+.tabs TD {
+	PADDING-RIGHT: 9px; PADDING-LEFT: 9px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+.tabs TH {
+	PADDING-RIGHT: 9px; PADDING-LEFT: 9px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+#rightcol DIV.www {
+	PADDING-RIGHT: 0.5em; PADDING-LEFT: 0.5em; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+#rightcol DIV.help {
+	PADDING-RIGHT: 0.5em; PADDING-LEFT: 0.5em; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+BODY.docs #toc {
+	PADDING-RIGHT: 20px; PADDING-LEFT: 0px; LEFT: 0px; PADDING-BOTTOM: 0px; WIDTH: 120px; PADDING-TOP: 0px; POSITION: absolute; TOP: 15px
+}
+BODY.docs #toc UL {
+	PADDING-LEFT: 0px; MARGIN-LEFT: 0px
+}
+#toc OL {
+	PADDING-LEFT: 0px; MARGIN-LEFT: 0px
+}
+BODY.docs #toc LI {
+	MARGIN-TOP: 7px; PADDING-LEFT: 10px; LIST-STYLE-TYPE: none
+}
+BODY.docs DIV.docs {
+	PADDING-RIGHT: 2em! important; PADDING-LEFT: 1em! important; PADDING-BOTTOM: 1em! important; MARGIN: 61px 0px 0px 150px; PADDING-TOP: 1em! important
+}
+UNKNOWN {
+	MARGIN-TOP: -0.67em; TEXT-INDENT: 5%
+}
+.docs H3 {
+	MARGIN-BOTTOM: 0.1em; PADDING-TOP: 0.3em
+}
+.docs H4 {
+	MARGIN-BOTTOM: 0.1em; PADDING-TOP: 0.3em
+}
+.functnbar {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN: 0.67em 2px; PADDING-TOP: 5px
+}
+.functnbar2 {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN: 0.67em 2px; PADDING-TOP: 5px
+}
+.functnbar3 {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN: 0.67em 2px; PADDING-TOP: 5px
+}
+.functnbar3 {
+	MARGIN-TOP: 0px
+}
+BODY {
+	PADDING-RIGHT: 1em; PADDING-LEFT: 1em; PADDING-BOTTOM: 1em; PADDING-TOP: 1em
+}
+BODY.composite {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+BODY.docs {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+TH {
+	VERTICAL-ALIGN: top; TEXT-ALIGN: left
+}
+TD {
+	VERTICAL-ALIGN: top; TEXT-ALIGN: left
+}
+.right {
+	TEXT-ALIGN: right! important
+}
+.center {
+	TEXT-ALIGN: center! important
+}
+.axial TH {
+	TEXT-ALIGN: right
+}
+.axial TH .strut {
+	TEXT-ALIGN: right
+}
+.app .axial TD TH {
+	TEXT-ALIGN: left
+}
+BODY .stb {
+	MARGIN-TOP: 1em; TEXT-INDENT: 0px
+}
+BODY .mtb {
+	MARGIN-TOP: 2em; TEXT-INDENT: 0px
+}
+.courtesylinks {
+	MARGIN-TOP: 1em; PADDING-TOP: 1em
+}
+DD {
+	MARGIN-BOTTOM: 0.67em
+}
+.toolgroup {
+	MARGIN-BOTTOM: 6px
+}
+.toolgroup .body {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 0px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px
+}
+.toolgroup .label {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px
+}
+.toolgroup .body DIV {
+	PADDING-LEFT: 1em; PADDING-BOTTOM: 0.3em
+}
+.toolgroup .body DIV DIV {
+	MARGIN-TOP: 0.3em; PADDING-BOTTOM: 0px
+}
+.tier1 {
+	MARGIN-LEFT: 0px
+}
+.tier2 {
+	MARGIN-LEFT: 1.5em
+}
+.tier3 {
+	MARGIN-LEFT: 3em
+}
+.tier4 {
+	MARGIN-LEFT: 4.5em
+}
+.tier5 {
+	MARGIN-LEFT: 6em
+}
+.tier6 {
+	MARGIN-LEFT: 7.5em
+}
+.tier7 {
+	MARGIN-LEFT: 9em
+}
+.tier8 {
+	MARGIN-LEFT: 10.5em
+}
+.tier9 {
+	MARGIN-LEFT: 12em
+}
+.tier10 {
+	MARGIN-LEFT: 13.5em
+}
+.filebrowse .expanded {
+	PADDING-LEFT: 34px
+}
+.filebrowse .collapsed {
+	PADDING-LEFT: 34px
+}
+.filebrowse .leafnode {
+	PADDING-LEFT: 20px
+}
+.filebrowse .leaf {
+	PADDING-LEFT: 20px
+}
+.messagechild {
+	PADDING-LEFT: 34px
+}
+.filebrowse-alt .expanded {
+	DISPLAY: inline-block; PADDING-LEFT: 0px! important; FLOAT: left; WIDTH: 34px; HEIGHT: 15px
+}
+.filebrowse-alt .collapsed {
+	DISPLAY: inline-block; PADDING-LEFT: 0px! important; FLOAT: left; WIDTH: 34px; HEIGHT: 15px
+}
+.filebrowse-alt .leaf {
+	DISPLAY: inline-block; PADDING-LEFT: 0px! important; FLOAT: left; WIDTH: 34px; HEIGHT: 15px
+}
+.filebrowse-alt .leafnode {
+	DISPLAY: inline-block; PADDING-LEFT: 0px! important; FLOAT: left; WIDTH: 34px; HEIGHT: 15px
+}
+.expandedwaste {
+	DISPLAY: inline-block; PADDING-LEFT: 0px! important; FLOAT: left; WIDTH: 34px; HEIGHT: 15px
+}
+.collapsedwaste {
+	DISPLAY: inline-block; PADDING-LEFT: 0px! important; FLOAT: left; WIDTH: 34px; HEIGHT: 15px
+}
+.sortup {
+	DISPLAY: inline-block; PADDING-LEFT: 0px! important; FLOAT: left; WIDTH: 34px; HEIGHT: 15px
+}
+.sortdown {
+	DISPLAY: inline-block; PADDING-LEFT: 0px! important; FLOAT: left; WIDTH: 34px; HEIGHT: 15px
+}
+.filebrowse-alt .leaf {
+	WIDTH: 20px
+}
+.filebrowse-alt .leafnode {
+	WIDTH: 20px
+}
+.sortup {
+	WIDTH: 20px
+}
+.sortdown {
+	WIDTH: 20px
+}
+.filebrowse UL {
+	PADDING-LEFT: 0px; MARGIN-LEFT: 0px; LIST-STYLE-TYPE: none
+}
+.filebrowse-alt UL {
+	PADDING-LEFT: 0px; MARGIN-LEFT: 0px; LIST-STYLE-TYPE: none
+}
+.filebrowse UL UL {
+	MARGIN-TOP: 0px; MARGIN-LEFT: 1.5em; PADDING-TOP: 0.67em
+}
+.filebrowse-alt UL UL {
+	MARGIN-TOP: 0px; MARGIN-LEFT: 1.5em; PADDING-TOP: 0.67em
+}
+.filebrowse LI {
+	MARGIN-BOTTOM: 0.67em
+}
+.filebrowse-alt LI {
+	MARGIN-BOTTOM: 0.67em
+}
+TD.filebrowse H3 {
+	MARGIN-TOP: 0px
+}
+.errormessage {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 42px; MIN-HEIGHT: 32px; PADDING-BOTTOM: 0.67em; MARGIN: 0.67em 0px; PADDING-TOP: 0.33em
+}
+.warningmessage {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 42px; MIN-HEIGHT: 32px; PADDING-BOTTOM: 0.67em; MARGIN: 0.67em 0px; PADDING-TOP: 0.33em
+}
+.donemessage {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 42px; MIN-HEIGHT: 32px; PADDING-BOTTOM: 0.67em; MARGIN: 0.67em 0px; PADDING-TOP: 0.33em
+}
+.infomessage {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 42px; MIN-HEIGHT: 32px; PADDING-BOTTOM: 0.67em; MARGIN: 0.67em 0px; PADDING-TOP: 0.33em
+}
+.docinfo {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 42px; MIN-HEIGHT: 32px; PADDING-BOTTOM: 0.67em; MARGIN: 0.67em 0px; PADDING-TOP: 0.33em
+}
+.dirinfo {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 42px; MIN-HEIGHT: 32px; PADDING-BOTTOM: 0.67em; MARGIN: 0.67em 0px; PADDING-TOP: 0.33em
+}
+.memberinfo {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 42px; MIN-HEIGHT: 32px; PADDING-BOTTOM: 0.67em; MARGIN: 0.67em 0px; PADDING-TOP: 0.33em
+}
+.usergroupinfo {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 42px; MIN-HEIGHT: 32px; PADDING-BOTTOM: 0.67em; MARGIN: 0.67em 0px; PADDING-TOP: 0.33em
+}
+.errormark {
+	PADDING-LEFT: 20px; MIN-HEIGHT: 15px
+}
+.warningmark {
+	PADDING-LEFT: 20px; MIN-HEIGHT: 15px
+}
+.donemark {
+	PADDING-LEFT: 20px; MIN-HEIGHT: 15px
+}
+.infomark {
+	PADDING-LEFT: 20px; MIN-HEIGHT: 15px
+}
+.alt {
+	DISPLAY: none
+}
+#banner H1 {
+	MARGIN: 0px
+}
+#leftcol {
+	WIDTH: 14em
+}
+.axial TH {
+	WIDTH: 12em
+}
+.axial TH .strut {
+	WIDTH: 12em
+}
+#leftcol .strut {
+	WIDTH: 12em
+}
+#breadcrumbs {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 8px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px
+}
+.app H3 {
+	CLEAR: both
+}
+.app H4 {
+	CLEAR: both
+}
+.bars {
+	CLEAR: both
+}
+.legend {
+	FLOAT: right
+}
+.legend TH {
+	PADDING-LEFT: 1em; TEXT-ALIGN: right
+}
+.bars TH {
+	PADDING-LEFT: 1em; TEXT-ALIGN: right
+}
+.bars TABLE {
+	TABLE-LAYOUT: fixed
+}
+.bars TH {
+	WIDTH: 12em
+}
+#projectdocumentlist TD.filebrowse-alt {
+	PADDING-RIGHT: 0.75em
+}

@@ -1,0 +1,110 @@
+<project name="URV.PLANETSIM" default="targets" basedir=".">
+
+	<property environment="env"/>
+	<property file="planetsim.properties"/>
+
+
+  <path id="base.path">
+      <pathelement path="${classpath}"/>
+      <fileset dir="../lib">
+        <include name="**/*.jar"/>
+      </fileset>
+   </path>
+
+
+    <target name="jar">
+    	<delete dir="../out"/>
+   	<mkdir dir="../out"/>
+    	<delete file="../lib/planetsim.jar"/>
+	<echo message="Compiling only with 1.4 compatibility (without debug options)"/>
+	<javac srcdir="../src"
+	           destdir="../out"
+		   source="1.4"
+		   target="1.4">
+	     	<classpath refid="base.path"/>      
+	</javac>      
+     	<jar jarfile="../lib/planetsim.jar"
+	         basedir="../out" >
+	    </jar>
+	</target>
+
+
+    <target name="jar_debug">
+    	<delete dir="../out"/>
+	<mkdir dir="../out"/>
+	<delete file="../lib/planetsim.jar"/>
+	<echo message="Compiling only with 1.4 compatibility (with activated debug options)"/>
+	<javac 	srcdir="../src"
+		destdir="../out"
+		source="1.4"
+		target="1.4"
+		debug="yes"
+		debuglevel="lines,vars,source">
+		<classpath refid="base.path"/>
+	</javac>
+	<jar jarfile="../lib/planetsim.jar" basedir="../out"></jar>
+    </target>
+
+  
+    <target name="api"> 
+  	  <delete dir="../docs/api"/>
+	  <javadoc destdir="../docs/api"
+           author="true"
+           version="true"
+           use="true"
+           windowtitle="PlanetSim">
+  	        <fileset dir="../src">
+              <include name="planet/**" />
+              <exclude name="**/*.lst" />
+     	    </fileset>
+		  	<classpath refid="base.path"/>
+  	  </javadoc>
+  	</target>
+
+  
+  	<target name="run">
+ 	 	<java classname="planet.test.SimTest">
+ 	 		<arg value="${event_file}"/> 
+ 	 		<arg value="${steps}"/>
+        	<classpath refid="base.path"/>    
+		</java>
+ 	</target>
+
+       <target name="test">
+       	   <mkdir dir="reports"/>
+           <junit printsummary="yes" fork="yes" haltonfailure="no" haltonerror="no">
+	   <formatter type="xml" />
+           <test name="planet.test.SimpleTest" todir="./reports"/>
+	   <classpath>
+             <path refid="base.path" />
+             <pathelement path="../lib/planetsim.jar" />
+             <pathelement path="../lib/junit.jar" />
+           </classpath>
+	   </junit>
+   
+           <junitreport todir="./reports">
+             <fileset dir="./reports">
+               <include name="TEST-*.xml"/>
+             </fileset>
+             <report format="frames" todir="./reports"/>
+           </junitreport>
+        <echo>
+        	See the results opening the file PLANETSIM/bin/reports/index.html
+        </echo>
+       </target>
+  
+  
+  <!-- =============================== Help =============================== -->
+  <target name="targets">
+    <echo message=""/>
+    <echo message="ANT build targets for P2P simulator"/>
+    <echo message=""/>
+    <echo message="The following targets are available:"/>
+    <echo message="  jar         Compile and create distribution, without debug options"/>
+    <echo message="  jar_debug   Compile and create distribution with activated debug options"/>
+    <echo message="  api         Generate api docs "/>
+    <echo message="  run         Run one simple command line test"/>
+    <echo message="  test        Execute a JUnit test. The output is in HTML format in 'reports' directory."/>
+  </target>
+
+</project>

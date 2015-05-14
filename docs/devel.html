@@ -1,0 +1,889 @@
+<html>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html>
+      <head>
+          <title>
+            PlanetSim: An Overlay Network Simulation Framework - Developer's Guide
+          </title>
+        <style type="text/css">
+          @import url("style/tigris.css");
+          @import url("style/maven.css");
+</style>
+        <link rel="stylesheet" href="style/print.css" type="text/css" media="print"></link>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+      </head>
+      <body class="composite">
+        <div id="banner0">
+          <table border="0" width="100%" cellpadding="8" cellspacing="0" id="table1">
+            <tr>
+              <td>
+                  <img border="0" src="images/planetsimlogo.jpg" width="251" height="157"><a href="index.htm"><span style="text-decoration: none"></img></span></a>
+                  <span style="text-decoration: none">&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span style="font-weight: 700"><a href="index.html">An Overlay Network Simulation Framework</a></span></span></td>
+              <td width="222">
+                <div id="login" align="right">
+                    <a href="http://ants.etse.urv.es/planet">
+                    <img border="0" src="images/logoplanet.jpg" width="150" height="142"></a></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div id="breadcrumbs">
+          <table border="0" width="98%" cellpadding="4" cellspacing="0" id="table2">
+            <tr>
+                <td width="286"><font size="2">Last Updated: 6 April 2005</font></td>
+              <td>
+                <div align="right">
+      <font size="2">
+		<a href="http://ants.etse.urv.es/planet"><img class="handle" src="images/none.png" alt=""></img>PLANET Project Page</a>
+      |
+      <a href="http://www.etse.urv.es/recerca/ast/"><img class="handle" src="images/none.png" alt=""></img>AST 
+		Research Group</a>&nbsp;
+		</font>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <table border="0" width="100%" cellpadding="8" cellspacing="0"> 
+          <tr valign="top">
+            <td>
+              <div id="bodycol">
+                <div class="app">
+    <h3><span lang="en-us">
+			<font size="2" color="#FFFBF0"><b>Developer's Guide</b></font></span></h3>
+    <p class="MsoNormal" style="text-align: justify; text-autospace: none">
+			<span lang="EN-GB"><font size="2">PlanetSim&#8217;s architecture comprises 
+			three main extension layers constructed one atop another. As we can 
+			see in the next figure, overlay services are built in the 
+			application layer using the standard Common API façade. This façade 
+			is built on the routing services offered by the underlying overlay 
+			layer. Besides, the overlay layer obtains proximity information to 
+			other nodes asking information to the Network layer.</font></span></p>
+			<p class="MsoNormal" style="text-align: center; text-autospace: none">
+			<img border="0" src="images/classes.jpg" width="855" height="534"></p>
+			<p class="MsoNormal" style="text-align:justify"><span lang="EN-GB">
+			<font size="2">We propose a novel service to be 
+			supported by overlay simulators: a façade API to develop overlay 
+			services and applications on top of existing overlays. This API is 
+			based on the proposed Common API (CAPI) for structured Peer-to-Peer 
+			overlays. The main motivation for this decision is the plethora of 
+			applications and services that can be built on top of structured 
+			overlays.</font></span></p>
+	<p class="MsoNormal" style="text-align:justify"><b>
+	<a href="http://iptps03.cs.berkeley.edu/final-papers/api.ps">
+			<font size="2" color="#006699">Towards a Common API for Structured Peer-to-Peer 
+			Overlays</font></a><font size="2" color="#006699"> </font></b>
+	<font size="2"> In this paper, we describe an 
+			ongoing effort to define common APIs for structured peer-to-peer 
+			overlays and the key abstractions that can be built on them. In 
+			doing so, we hope to facilitate independent innovation in overlay 
+			protocols, services, and applications, to allow direct experimental 
+			comparisons, and to encourage application development by third 
+			parties.</font></p>
+    <h3><span lang="en-us">
+			<font size="2" color="#FFFBF0"><b>1) Network Layer</b></font></span></h3>
+				<p class="MsoNormal">
+			<span lang="EN-GB"><font size="2">The Network layer dictates the 
+			overall life cycle of the framework by calling the appropriate 
+			methods in the overlay&#8217;s Node and obtaining routing information to 
+			dispatch messages through the Network. As we explain later, the 
+			Network layer can be implemented either by the NetworkSimulator or 
+			NetworkWrapper. Developers can thus transition from simulation to 
+			experimentation environments in a transparent way.</font></span></p>
+	<p class="MsoNormal">
+				<span lang="en-gb"><font size="2">In the next figure, we can see 
+				a network creation, where the simulator constructs all nodes and 
+				joins these on the new network.</font></span></p>
+	<p class="MsoNormal">
+				&nbsp;</p>
+	<p class="MsoNormal" style="text-align: center">
+				<img border="0" src="images/seq1.png" width="733" height="615"></p>
+		<p class="MsoNormal"><span lang="en-us"><font size="2">An another form 
+		to create a network is with an event file. </font></span>
+		<span lang="EN-GB">
+		<span style="font-style: normal; font-variant: normal; font-weight: normal; ">
+		<font size="2">You have </font>
+		</span><font size="2">write an event file with the next event format :</font></span></p>
+	<p class="MsoNormal">&nbsp;</p>
+	<p class="MsoNormal"><span lang="EN-GB"><font size="2" face="Courier">&nbsp;&nbsp;&nbsp;&nbsp; at time [JOIN|LEAVE|FAIL] 
+		PARAM0 [PARAM1] NUM_EVENTS</font></span></p>
+	<p class="MsoNormal">&nbsp;</p>
+	<p class="MsoNormal"><span lang="EN-GB"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Samples:</font></span></p>
+	<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Courier">
+		</font> </font>
+		<font face="Courier">
+		<b><font size="2">at 3 JOIN 32342322 32342322 1</font></b></font></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; At time 
+		3, a new node with id 32342322 joins using itself as bootstrap, one 
+		time.</font></span></p>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2">&nbsp;</font></span></p>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+		<b><font size="2" face="Courier">at 14 JOIN&nbsp; 22333564 32342322&nbsp; 1</font></b></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; At time 
+		14, a new node with id 22333564 joins using the existing node 32342322 
+		as bootstrap, one time. </font></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+		<b><font size="2" face="Courier">at 400 LEAVE 32342322 &nbsp;1</font></b></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; At time 
+		400, the node with id 32342322 leaves.</font></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+		<b><font size="2" face="Courier">at 502 FAIL 22333564 1</font></b></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; At time 
+		502, &nbsp;the node with id 22333564 crashes.</font></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2">Also you&nbsp; can generate automatic join event file using 
+		the script genfile</font></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-GB">
+		<font size="2">&gt;&gt; cd bin</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-GB">
+		<font size="2">&gt;&gt; genfile name_file topology num_nodes delay_steps</font></span></p>
+	<p class="MsoNormal" style="margin-left:18.0pt">&nbsp;</p>
+		<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-GB"><b>
+		<font size="2">name_file</font></b><font size="2"> <b>&nbsp;</b>: name 
+		of the output file to generate</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">&nbsp;</p>
+		<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-GB"><b>
+		<font size="2">topology</font></b><font size="2">&nbsp; : choose a (R)andom 
+		or a (D)istributed scheme</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">&nbsp;</p>
+		<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-GB"><b>
+		<font size="2">num_nodes</font></b><font size="2"> : total number of 
+		nodes </font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">&nbsp;</p>
+		<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-GB"><b>
+		<font size="2">delay_steps</font></b><font size="2"> : number of steps 
+		between two joins</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">&nbsp;</p>
+		<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-GB">
+		<font size="2">&nbsp;Example :</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-GB">
+		<font size="2">&nbsp;&gt;&gt; genfile test_join1000d.txt D 1000 3</font></span></p>
+	<p class="MsoNormal" style="text-align: center">
+				</br></p>
+    <h3><span lang="en-us"><font color="#FFFBF0" size="2">
+				<b>2) Overlay Layer 
+				: Protocol Extension</b></font></span></h3>
+				<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				<span lang="EN-GB"><font size="2">The main conceptual entity and 
+				obvious hotspot of this layer is the Node. A node contains 
+				incoming and outgoing message queues and methods for sending and 
+				receiving/ processing messages. Each particular node must then 
+				include a complete behaviour or protocol that will dictate which 
+				messages to send in specific times and how to react to incoming 
+				messages. Furthermore, to create a new overlay, the embedded protocol must define its own 
+				messages with specific information to arrange the overlay. This 
+				also implies that developers should be able to define their own 
+				message types (hotspot).</font></span></p>
+				<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				<span lang="EN-GB"><font size="2">&nbsp;</font></span></p>
+				<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				<span lang="EN-GB"><font size="2">At the overlay layer, the 
+				communication is bidirectional with both the application and 
+				network layers. With the application layer, the Node notifies 
+				the Application of received messages (upcalls) and it is invoked 
+				by the EndPoint façade in order to route messages or obtain 
+				routing state information (downcalls). Both the EndPoints and the 
+				Nodes exchange RouteMessage types. A RouteMessage contains 
+				source and target identifiers, as well as information regarding 
+				the next hop in the overlay. It is also possible to modify the 
+				next hop route at the application or overlay layers in order to 
+				alter the routing scheme.</font></span></p>
+				<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				<span lang="EN-GB"><font size="2">&nbsp;</font></span></p>
+				<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				<span lang="EN-GB"><font size="2">With the network layer, the 
+				Node hotspot provides the template methods (<i>join</i>, <i>
+				leave</i>, <i>fail </i>and <i>process</i>) that determine the 
+				life&#8217;s cycle of every node. The method <i>process </i>contains 
+				the specific protocol each node maintains to create the overlay. 
+				Besides, every node has an incoming and an outgoing message 
+				queue; incoming messages are parsed every step in the <i>process
+				</i>method, and the <i>send </i>method moves messages to the outgoing queue.</font></span></p>
+				<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				<span lang="EN-GB"><font size="2">&nbsp;</font></span></p>
+				<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				<span lang="EN-GB"><font size="2">To identify nodes in the 
+				overlay, the simulator employs three main entities: Id, 
+				IdFactory and NodeHandle. Ids are custom number types of 32 to 
+				160 bits that identify nodes in the overall key based routing 
+				scheme. The extensible IdFactory permits to define custom Id 
+				generation schemes in each overlay. Additionally, NodeHandles 
+				contain IP to Id value pairs for each node. Furthermore, a 
+				NodeHandle provides a <i>proximity </i>method that queries the 
+				Network to obtain network proximity information. </font></span>
+				</p>
+				<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				<span lang="EN-GB"><font size="2">&nbsp;</font></span></p>
+				<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				<span lang="EN-GB"><font size="2">This information is important 
+				to design locality sensitive overlays. As we can see, we have 
+				many upcalls that define the Node&#8217;s life cycle and registering 
+				of applications, and only one downcall to query the Network for 
+				proximity between Nodes. </font></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+	<p class="MsoNormal"><span lang="EN-GB"><font size="2">You would 
+		execute an application than use the overlay likes this example (planet.test.SimTest)</font></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">package planet.test;&nbsp;</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">import 
+		java.util.Vector;</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">import 
+		planet.commonapi.Network;</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">import 
+		planet.generic.commonapi.factory.GenericFactory;</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">import 
+		planet.simulate.EventParser;</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">import 
+		planet.simulate.NetworkSimulator;</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">import 
+		planet.simulate.Scheduler;</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">import 
+		planet.util.Properties;</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">&nbsp;</p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">/**</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;* 
+		This test use the event file &quot;test_join1000d.txt&quot; in the &quot;bin&quot; 
+		directory. Shows the time elapsed</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;* for 
+		generating the network and its stabilization. Finally, prints all nodes 
+		with theirs</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;* 
+		information</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;* 
+		@author Ruben Mondejar</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;* 
+		@author Jordi Pujol</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;*/</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">public 
+		class SimTest {&nbsp;</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp; /**</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp; &nbsp;* 
+		Initialize the planet.util.Properties with </font> </span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp; &nbsp;* 
+		../conf/factories_zero.properties, ../conf/sim.properties, ../conf/chord.properties 
+		files,</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp; &nbsp;* 
+		with a test_join1000d.txt for event file.</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp; &nbsp;* 
+		Then, it initialize the GenericFactory and starts the stabilization 
+		process.</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp; &nbsp;* 
+		@param args Nothing.</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp; &nbsp;* 
+		@throws Exception</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp; &nbsp;*/</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp; 
+		public static void main(String[] args) throws Exception {</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp; 
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //init context</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+		&nbsp;&nbsp; Properties.init(&quot;../conf/factories_zero.properties&quot;,&quot;../conf/sim_simtest.properties&quot;,&quot;../conf/chord.properties&quot;);</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		&nbsp; GenericFactory.init();</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font> </span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //load events</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Vector events = EventParser.parseEvents(Properties.eventFile);</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Scheduler timer = new Scheduler();</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; timer.addEvents(events);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</font> </span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; long t1,t2,t3,t4;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		</font> </span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //actual millis</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; t1 = System.currentTimeMillis();</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NetworkSimulator sim = new NetworkSimulator(timer);</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; t2 = System.currentTimeMillis();</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Network net = sim.getInternalNetwork();</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int steps = net.getSimulatedSteps();</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;Network 
+		creation time [&quot;+(t2-t1)+&quot;] milliseconds for [&quot;+net.size()+&quot;] 
+		nodes with [&quot;+steps+&quot;] steps.&quot;);</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //stabilization</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; t3 = System.currentTimeMillis();</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sim.stabilize();</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; t4 = System.currentTimeMillis();</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int steps2 = net.getSimulatedSteps();</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;Simulation time 
+		[&quot;+(t4-t3)+&quot;] milliseconds for [&quot;+net.size()+&quot;] 
+		nodes with [&quot;+(steps2-steps)+&quot;] steps.&quot;);</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;Total time 
+		[&quot;+(t4-t1)+&quot;] milliseconds for [&quot;+net.size()+&quot;] 
+		nodes with [&quot;+steps2+&quot;] steps.&quot;);</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sim.printNodes();</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></span></p>
+		<p class="MsoNormal" style="margin-left:18.0pt">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">}</font></span><span lang="EN-GB"><font size="2">&nbsp;</font></span></p>
+	<h3><b>
+				<span lang="EN-GB" style="font-family: Verdana; color: #FFFBF0">
+				<font size="2">An example of overlay protocol implementation : Chord</font></span></b></h3>
+      <p class="MsoNormal"><span lang="en-gb"><font size="2">Recommendation: to 
+		understand all about the methods, messages, etc, you must read and think 
+		the original protocol of Chord paper. You can find this document in the 
+		next link</font></span><span lang="EN-GB"><font size="2"> : </font></span></p>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2" color="#006699">&nbsp;</font><a style="color: #006699; text-decoration: underline; text-underline: single" href="http://www.pdos.lcs.mit.edu/papers/chord:sigcomm01/chord_sigcomm.pdf"><font size="2">http://www.pdos.lcs.mit.edu/papers/chord:sigcomm01/chord_sigcomm.pdf</font></a></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><u><span lang="EN-GB"><font size="2">Important 
+		Methods</font></span></u></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal" style="text-align: justify"><span lang="en-gb">
+		<font size="2">One property in this point is 
+		the inversion of control of the framework. The ChordNode is the core of the protocol 
+		implementation, but the framework defines flow and the interaction with 
+		the Node interface methods and NodeImpl abstract class. Furthermore, 
+		follows the stabilization scheme proposed in the paper, therefore we 
+		implemented the methods stabilize and fix_fingers.</font></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="en-gb"><b><font size="2">----------------- All 
+		protocols--------------------------</font></b></span></p>
+		<p class="MsoNormal"><span lang="en-gb"><font size="2">a) </font> <b>
+		<font size="2">join (Id n1) </font> </b></span> </p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="en-gb"><font size="2">In this basic method, the node 
+		joins in the network since a bootstrap node. The node clears the 
+		predecessor reference, and initiate the search of the successor executing 
+		the find_successor method.</font></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="en-gb"><font size="2">b) </font> <b>
+		<font size="2">leave () </font> </b></span> </p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="en-gb"><font size="2">Other basic method, the node 
+		leaves the network as describes the next scheme. In this scheme, the 
+		node only 
+		must sends two messages, one for predecessor informing the successor 
+		change, and the reverse message to successor, like a unqueue method in 
+		the double linked queue.</font></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><font size="2">c) </font> <b><font size="2">fail()</font></b></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="en-gb"><font size="2">The same than the previous 
+		method but in this case the node don't sends any message and it 
+		disconnect directly.</font></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="en-gb"><font size="2">d) <b>process (int actualStep)</b> :
+		</font>
+		</span> </p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="en-gb"><font size="2">While the simulation is running, 
+		the process executes in every 
+		step this method. The process method executes the dispatcher to handle 
+		all messages.</font></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="en-gb"><font size="2">e) </font> <b>
+		<font size="2">routeData (RouteMessage 
+		data)</font></b></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="en-gb"><font size="2">This method discriminates 
+		between direct messages and indirect messages. If the message indicate 
+		the destination, a direct shipment takes place, but if the destination 
+		is unknown then it finds the next hop following the overlay routing protocol.
+		</font>
+		</span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="en-gb"><b><font size="2">----------------- Chord 
+		Specific ----------------------</font></b></span></p>
+		<p class="MsoNormal"><span lang="en-gb"><font size="2">e) </font> <b>
+		<font size="2">stabilize()</font></b></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="en-gb"><font size="2">Finds the value of the 
+		successor, if verifies that is the real successor then sets the new 
+		reference and notifies of this to him.</font></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="en-gb"><font size="2">f) </font> <b>
+		<font size="2">fix_fingers()</font></b></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="en-gb"><font size="2">This method is seemed to the 
+		previous method but with the main difference that this method is for all 
+		values of the finger table. In every call, finds and verifies one of the 
+		all entries of the table.</font></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="en-gb"><font size="2">g) </font> <b>
+		<font size="2">broadcast (RouteMessage 
+		data)</font></b></span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="en-gb"><font size="2">This method follows an specific 
+		algorism from the paper &quot;Efficient Broadcast in Structured P2p Networks&quot;. 
+		</font>
+
+		</span> </p>
+	<p class="MsoNormal"><font size="2">
+	<span lang="en-gb" style="font-family: Verdana">&nbsp;Link : </span></font>
+	<span lang="en-gb" style="font-family: Verdana"> <font color="#008000">
+<a href="http://www.sics.se/~seif/Publications/paper3.pdf">
+<font color="#006699" size="2">http://www.sics.se/~seif/Publications/paper3.pdf</font></a></font></span></p><p:colorscheme
+ colors="#ffffff,#000000,#808080,#000000,#18383a,#333399,#0000cc,#0000cc"/>
+
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="en-gb"><u><font size="2">Periodic Tasks</font></u></span></p>
+		<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				&nbsp;</p>
+		<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				<span lang="EN-GB"><font size="2">When a developer 
+				implements a new overlay protocol like Chord (ChordNode), it 
+				also needs to define periodic tasks that will send messages to 
+				maintain the shared state and to correct its own routing tables. 
+				Any overlay simulator must then provide a Timer subsystem 
+				enabling this activation of periodic tasks in specific times. 
+				This timer subsystem can be extern to nodes or be included in 
+				the node contract enabling the activation of tasks: <i>
+				setTimer(task, firsTime, periodic)</i>.</font></span></p>
+		<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				&nbsp;</p>
+		<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				<span lang="en-gb"><font size="2">In this case, two task are be implemented. 
+				The two periodic tasks are the stabilize task and the fix_finger 
+				task.</font></span></p>
+		<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				&nbsp;</p>
+		<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				<span lang="en-gb"><font size="2">Example :</font></span></p>
+		<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				&nbsp;</p>
+		<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				<font face="Courier" size="2"><span lang="en-gb">&nbsp; 
+				public class StabilizeTask extends TimerTaskImpl {<br>
+&nbsp;&nbsp;&nbsp; </span></font></p>
+		<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				<span lang="en-gb"><font face="Courier" size="2">&nbsp;&nbsp;&nbsp;
+				</font></span><font face="Courier" size="2">
+				<span lang="en-gb">public StabilizeTask() 
+				{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; super(true);<br>
+&nbsp;&nbsp;&nbsp; }</span></font></p>
+		<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				<span lang="en-gb"><font face="Courier" size="2">&nbsp;&nbsp;&nbsp;
+				</font></span><font face="Courier" size="2">
+				<span lang="en-gb">/**<br>
+&nbsp;&nbsp;&nbsp; * Invoke stabilize() method of Node.<br>
+&nbsp;&nbsp;&nbsp; * <br>
+&nbsp;&nbsp;&nbsp; * @see java.util.TimerTask#run()<br>
+&nbsp;&nbsp;&nbsp; */<br>
+&nbsp;&nbsp;&nbsp; public void run() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; super.run();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (!isFinished()) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (finger[0] != null) stabilize();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp; }</span></font></p>
+		<p class="MsoNormal" style="text-align: justify; text-autospace: none">
+				&nbsp;</p><p class="MsoNormal"><u><span lang="EN-GB">
+	<font size="2">Messages</font></span></u></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2">All kind of 
+		messages have a few different modes. The three modes are Request, Reply 
+		and Refresh mode.</font></span></p>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2">The Request mode 
+		ever have a response with a Reply messages, however the Refresh message 
+		don&#8217;t have a response.</font></span></p>
+		<p class="MsoNormal"><span lang="EN-GB"><font size="2">At last, the 
+		Error mode&nbsp;indicates that a sended messages can't arrives to the 
+		destination.</font></span></p>
+	<p class="MsoNormal">&nbsp;</p>
+		<table border="1" width="100%" id="table3" style="border-width: 3px" bordercolor="#BBBBBB" bordercolorlight="#C0C0C0" bordercolordark="#EFEFEF">
+			<tr>
+				<td width="109"><b><font size="2">Type</font></b></td>
+				<td width="165"><b><font size="2">Start call method</font></b></td>
+				<td><b><font size="2">Modes</font></b></td>
+				<td width="800"><b><font size="2">Description</font></b></td>
+			</tr>
+			<tr>
+				<td width="109">
+		<span lang="EN-GB"><font size="2">FIND_SUCC</font></span></td>
+				<td width="165"><font size="2">join</font></td>
+				<td><span lang="EN-GB">
+		<font size="2">Request/Reply</font></span></td>
+				<td width="800"><font size="2">it requests to successor node the result of the 
+				find successor method</font></td>
+			</tr>
+			<tr>
+				<td width="109">
+		<span lang="EN-GB"><font size="2">FIND_PRE&nbsp;&nbsp; </font></span>
+				</td>
+				<td width="165"><span lang="en-gb"><font size="2">f</font></span><span lang="EN-GB"><font size="2">ind_predecessor</font></span></td>
+				<td><span lang="EN-GB">
+		<font size="2">Request/Reply</font></span></td>
+				<td width="800"><font size="2">it continues the find_successor objective
+				</font> </td>
+			</tr>
+			<tr>
+				<td width="109"><span lang="EN-GB"><font size="2">SET_SUCC&nbsp;&nbsp; </font></span>
+				</td>
+				<td width="165"><span lang="en-gb"><font size="2">l</font></span><span lang="EN-GB"><font size="2">eave</font></span></td>
+				<td><span lang="EN-GB">
+		<font size="2">Refresh</font></span></td>
+				<td width="800"><font size="2">it indicates to predecessor the his successor</font></td>
+			</tr>
+			<tr>
+				<td width="109"><span lang="EN-GB"><font size="2">SET_PRE</font></span></td>
+				<td width="165"><span lang="en-gb"><font size="2">l</font></span><span lang="EN-GB"><font size="2">eave</font></span></td>
+				<td><span lang="EN-GB">
+		<font size="2">Refresh</font></span></td>
+				<td width="800"><font size="2">it indicates to successor the his predecessor
+				</font>
+				</td>
+			</tr>
+			<tr>
+				<td width="109"><span lang="EN-GB"><font size="2">GET_PRE</font></span></td>
+				<td width="165"><font size="2">stabilize</font></td>
+				<td><span lang="EN-GB">
+		<font size="2">Request/Reply</font></span></td>
+				<td width="800"><font size="2">it request to successor the current predecessor 
+				of it</font></td>
+			</tr>
+			<tr>
+				<td width="109"><span lang="EN-GB"><font size="2">NOTIFY</font></span></td>
+				<td width="165"><font size="2">GetPreListener.onMessage</font></td>
+				<td><span lang="EN-GB">
+		<font size="2">Refresh</font></span></td>
+				<td width="800"><font size="2">When GET_PRE/Reply arrives, the node finalizes 
+				the stabilize process sends to successor this message</font></td>
+			</tr>
+			<tr>
+				<td width="109"><span lang="EN-GB"><font size="2">SUCC_LIST&nbsp; </font></span>
+				</td>
+				<td width="165"><span lang="EN-GB">
+				<font size="2">stabilize</font></span></td>
+				<td><span lang="EN-GB">
+		<font size="2">Request/Reply</font></span></td>
+				<td width="800"><font size="2">This message travels through a few of successors 
+				until reaches the destination and when it ends, returns to the 
+				source node</font></td>
+			</tr>
+			<tr>
+				<td width="109"><span lang="EN-GB"><font size="2">BROADCAST&nbsp; </font></span>
+				</td>
+				<td width="165"><span lang="en-gb"><font size="2">b</font></span><span lang="EN-GB"><font size="2">roadcast</font></span></td>
+				<td><span lang="EN-GB">
+		<font size="2">Refresh</font></span></td>
+				<td width="800"><font size="2">it contains the limit key to send the next 
+				messages</font></td>
+			</tr>
+			<tr>
+				<td width="109"><span lang="EN-GB"><font size="2">DATA</font></span></td>
+				<td width="165"><span lang="en-gb"><font size="2">r</font></span><span lang="EN-GB"><font size="2">oute</font></span></td>
+				<td>
+		<span lang="EN-GB" style="font-family: Verdana">
+				<font size="2">Request/Refresh</font></span></td>
+				<td width="800"><font size="2">Message of the Application Layer, when the node 
+				know the destination changes the mode of message from Request to 
+				Refresh</font></td>
+			</tr>
+		</table>
+		<p>&nbsp;</p>
+		<h3><span style="color: #FFFBF0" lang="en-us">
+				<b><span style="font-family: Verdana"><font size="2">3) Application 
+		Register</font></span></b></span></h3>
+	<p class="MsoNormal">
+	<font size="2">You have to implement a main application to execute the 
+	simulation. The first step is that your main application extends GenericApp 
+	class. The second step is call the super constructor in your constructor 
+	because it inicialitzate the framework. And the third step is generate the 
+	network and register your application in this.</font></p>
+	<p class="MsoNormal"><span lang="EN-GB"><font size="2">In the example, we do 
+	a simple main application where we inicialitzate the network with the config 
+	file, generate the network, and register a SimpleApplication. Also executes 
+	a simple message sender.</font></span></p>
+		<p class="MsoNormal">
+		&nbsp;</p>
+	<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">package planet.test.simpledht;</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">import 
+		planet.commonapi.Network;</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">import 
+		planet.commonapi.exception.InitializationException;</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">import 
+		planet.generic.commonapi.GenericApp;</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">import 
+		planet.generic.commonapi.factory.*;</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">public 
+		class PeerTest <b>extends GenericApp</b> {</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		/**</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		&nbsp;* Network to contain all nodes.</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		&nbsp;*/</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		private static Network network = null;</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</font>
+		</span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		/**</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		&nbsp;* Builds a network, following the values of the properties files.</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		&nbsp;*/</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		public PeerTest() throws InitializationException {</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		<b>super(&quot;../conf/PEERfactories.properties&quot;, &quot;../conf/PEERsim.properties&quot;, &quot;../conf/PEERchord.properties&quot;);</b></font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try {</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //builds a network with the properties specified at 
+		properties</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		<b>network = GenericFactory.buildNetwork();</b></font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;Network created\n&quot;);</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; network.prettyPrintNodes();</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //register to all nodes the application specified at 
+		properties</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		<b>network.registerApplicationAll();</b></font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;Application added\n&quot;);</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sendMessage();</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } catch (InitializationException e) {</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;Occur an exception in 
+		initialization of &quot;+ this.getClass().getName() +&quot;: &quot; + e.getMessage());</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.exit(-1);</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		}</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</font>
+		</span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		/**</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		&nbsp;* Send a Hello World message to the network, getting a radomly existing
+		</font>
+		</span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		&nbsp;* SimpleApplication of the network.</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		&nbsp;*/</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		public void sendMessage() {</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		</font> </span>
+		<span lang="DA" style="font-family: Courier">
+		<font size="2">System.out.println(&quot;Sending message...&quot;);</font></span></p>
+		<p class="MsoNormal">
+		<span lang="DA" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		</font> </span>
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">String 
+		messageText = &quot;Hello World!&quot;;</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PeerTestMessage mesg = new PeerTestMessage(messageText);</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		SimpleApplication app = (SimpleApplication ) network.getRandomApplication(SimpleApplication .applicationId);</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; app.send(messageText, mesg);</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; network.stabilize();</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		}</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		/**</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		&nbsp;* Starts the test, building a network following the values of the</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		&nbsp;* properties files and send a simple Hello World message.</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		&nbsp;* @param args Nothing waiting.</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		&nbsp;*/</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		public static void main(String args[]) {</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try {</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PeerTest c = new PeerTest();</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } catch (Exception e) {</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e.printStackTrace();</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier">
+		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.exit(0);</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		}</font></span></p>
+		<p class="MsoNormal">
+		<span lang="EN-GB" style="font-family: Courier"><font size="2">}</font><u><font size="2">
+		</font>
+		</u></span></p>
+	<p class="MsoNormal" style="text-align: justify"><span lang="en-gb"><font size="2">
+	Once the network overlay is stabilized, you must generate a new instance of the application, 
+	for example specifying a concrete node, by the method registerApplication(). At this moment, the node constructs a new EndPoint to 
+	give capacity to the new application. All this process must 
+	be made for each one of the nodes that conform the network, and will be then 
+	when the application totally is registered. </font></span></p>
+	<p class="MsoNormal" style="text-align: center">
+	<img border="0" src="images/seq2.png" width="683" height="442"></p>
+	<p class="MsoNormal">
+	&nbsp;</p>
+	<p></br></p></p>
+                </div>
+              </div>
+            </td>
+          </tr>
+          </table>
+        <div id="footer">
+          <table border="0" style="width:100%" cellpadding="4" cellspacing="0" id="table4">
+            <tr>
+              <td>
+<font size="2">© 2003-2004 Rubén Mondéjar
+<a href="mailto:%3Ccpairot@etse.urv.es">&lt;Ruben.Mondejar@estudiants.urv.es</a>&gt;</font></td>
+            </tr>
+          </table>
+        </div>
+      </body>
+    </html>
+  

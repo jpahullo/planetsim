@@ -1,0 +1,61 @@
+PlanetSim Releases
+--------------------
+
+20th July 2005: 3.0 Candidate : Renewed simulator
+----------------------------------
+  - New structure of the simulator kernel:
+    - Includes all factories as in the last versions.
+    - Added the behaviours in the internal simulator kernel structure.
+    - Added the ability to get different outputs following some results type (by default, GML and Pajek).
+  - Added a Trivial P2P to show how works an overlay very simple.
+  - Fixed any other minors bugs.
+  
+NOTE: This version is incompatible with the rest. We recommend to update to this last version.
+
+
+
+10th May 2005: 2.0.4 Alpha : Symphony bugfixes
+----------------------------------
+  - Optimization in planet.chord.ChordNode.FindPredListener: the internal Hashtable has been replaced for three attributes. The ChordNode has been updated too.
+  - Fixed bug on the SymphonyNode.process(int) method, that not processes all permited incoming messages in certain cases.
+  - Fixed bug on the certain behaviours of Symphony (planet.symphony.behaviours): it don't update the SymphonyNode.stabilized flag
+    and don't decrement the counter of delivered application data message.
+
+18th April 2005: 2.0.3 Alpha : SymphonyId bugfix
+----------------------------------
+  - Fixed bug on the SymphonyId(String, String) constructor: It always returned 0.0 for any key.
+
+11th April 2005: 2.0.2 Alpha : NetworkImpl bugfix
+----------------------------------
+  - Fixed bug on the NetworkImpl on joinNodes(int) method, to ensure a randomized selection of bootstrap nodes.
+  - Fixed bug on the behaviours properties for Symphony (conf/Behaviours.properties), to set the DataBehaviour 
+    for LOCAL and REMOTE application level RouteMessages, and RoutingBehaviour for the other REMOTE cases.
+      
+
+8th April 2005: 2.0.1 Alpha : SymphonyId bugfix
+----------------------------------
+  - Fixed bug for key building using the SymphonyId implementation. Modified the SymphonyId(byte[]).
+  - Fixed bug on the implementation of the planet.symphony.behaviours.DataBehaviour
+  - Fixed bug on the application of this DataBehaviour, specified in conf/Behaviours.properties
+  - Remain: Guarantee not route an application level message, when the DataBehaviour, after invoking
+    the application.forward(RouteMessage) returns false.
+
+6th April 2005: 2.0 Alpha : Behaviours and GML output
+----------------------------------
+  - New manner to implement the overlay nodes: the behaviours. Has been added new
+    elements in the framework to work with behaviours. Each of these offers the 
+    control of a part of the overlay protocol.
+  - Permits build a GML output for the build network to view into YED (included into
+    this distribution).
+  - Added new upcalls and downcalls between the application and overlay layer.
+  - The Symphony implementation has been replaced with another one based on behaviours,
+  - Remain: Guarantee the same efficiency and speedup found in the earlier release.
+
+
+1.0 : The begining of the PlanetSim
+----------------------------------
+  - Framework for overlay simulation
+  - Chord and Symphony implementation
+  - Optimized simulator: 
+     - 8,5 sec and 2515 steps for network stabilization of 1000 Chord nodes.
+     - 2,1 sec and 2149 steps for network stabilization of 1000 Symphony nodes.

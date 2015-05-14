@@ -1,0 +1,141 @@
+<html>
+<head>
+    <title>yEd Graph Editor</title>
+
+  <style type="text/css">
+
+body { font-family:sans-serif; margin:1.0cm; background-color:white; }
+
+h1 { font-family:serif; padding-left:0.5cm; padding-top:2mm; padding-bottom:2mm; margin-top:1cm; background-color:#b0b0b0; color:black; font-size:26px; margin-bottom:18px; }
+
+h2 { margin-top:1cm;border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:black; font-size:21px; margin-bottom:18px; }
+
+h3{ margin-left:1.0cm;  font-size:16px; }
+
+h4 { margin-left:1.0cm; font-size:13px; }
+
+ol,ul,li,div,td,th,address,blockquote { margin-left:0.5cm; font-size:13px; }
+
+p { margin-left:1cm; margin-right:5mm; font-size:13px; text-align:justify;}
+
+p.figure {font-size:12px;}
+
+li { margin-top:3px; }
+
+code,kbd,tt { font-family:Courier New,Courier; color:#0000C0; }
+
+var { font-style:normal; color:#0000C0; }
+
+blockquote,cite { font-style:italic; }
+
+.code { font-family:Courier New,Courier; color:#0000C0; }
+
+.graphic {border-width:1px; border-style:solid; border-color:black;padding:2px; margin:2px;}
+
+.title {padding-left:0.5cm; padding-top:2mm; padding-bottom:2mm; margin-top:3cm; background-color:black; color:white; font-size:30px; margin-bottom:18px;}
+
+.copyright { 
+    font-size: 11px; 
+    font-style:italic; 
+    text-align:right;
+    margin-top:1cm;
+}
+
+table { padding-top:0.5cm; }
+
+pre.normal { color:#000000; }
+
+td { 
+    background-color:#f0f0f0;
+    vertical-align:top;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>yEd Graph Editor</h1>
+
+<p>
+This is version 2.2.1 of the yEd Graph Editor. 
+</p>
+<p>
+yEd is a general purpose Graph Editor that can be used to
+create, view  and layout diagrams. It exhibits many of the 
+features provided by the <a href="http://www.yworks.com/products/yfiles">graph visualization library 
+yFiles</a>.
+</p>
+
+<p>
+yEd is a product of the diagraming company <a href="http://www.yworks.com">yWorks GmbH</a>.
+</p>
+<p>
+The <a href="LICENSE.html">yEd License Agreement</a> applies to this software. 
+You must read and accept this license before using yEd.
+</p>
+
+
+<h2>Starting the Graph Editor</h2>
+
+<p>
+Open a console and change to <a href=".">this</a> directory. then type
+<br><br>
+<code>java -jar yed.jar</code>
+<br><br>
+Optionally start the editor for a given graph in YGF or GML format:
+<br><br>
+<code>java -jar yed.jar &lt;graphfile&gt;</code>
+<br><p>
+</p><p> 
+Under Windows you can simply doubleclick "yed.jar" in the the explorer
+window. This may not work if executable jar files have not the right 
+file type associated.
+
+<h2>Command Line Arguments</h2>
+
+<p>
+<table>
+<th>Argument</th><th>Description</th>
+<tr>
+<td>-classic</td>
+<td>Starts YEd in classic mode, i.e. without the graph hierarchy feature
+enabled. There will be no tree view of the nodes and no hierarchy menu entry.
+<td>
+</tr>
+<tr>
+<td>&lt;graphfile&gt;</td>
+<td>Loads and display the specified ygf or gml file on program startup</td>
+</tr>
+</table>
+</p>
+
+<h2>Troubleshooting</h2> 
+
+<ol>
+<li>
+If you get an OutOfMemoryException try starting the application
+with an additional argument:
+<br>
+<code>java -Xmx256m -jar yed.jar</code>
+</li>
+
+<li>
+If yEd starts up in German (Deutsch) then switching to an English localization 
+can be done by changing the setting in the menu [Datei->Einstellungen->Sprache] to English. After you restart yEd, the application will be fully localized in English. 
+</li>
+</ol>
+
+<p>
+
+<p class="copyright">Copyright yWorks GmbH, 2001-2004. All rights reserved</p>
+
+</body>
+</html>
+
+
+
+
+
+
