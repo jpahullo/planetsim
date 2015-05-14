@@ -73,12 +73,16 @@ Authors move this project from Sourceforge to Github in spirit of sharing. Autho
 ## Authors
 
 Pedro García López <pedro.garcia@urv.cat>
+
 Carles Pairot Gavaldà <carles.pairot@urv.cat>
+
 Rubén Mondéjar Andreu <ruben.mondejar@urv.cat>
+
 Jordi Pujol Ahulló <jordi.pujol@urv.cat>
 
 ## License
 
 PlanetSim is under GPL Licence v3. See LICENCE
+
 Disclaimer: License was moved from LGPL to GPL v3 when moved to github site on May 14, 2015.
 
